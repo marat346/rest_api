@@ -7,4 +7,6 @@ import java.util.List;
 public interface CompanyService {
 
     public List<Company> getAll();
+
+    public Company add(Company company);
 }

@@ -23,4 +23,13 @@ public class CompanyDaOImpl implements CompanyDaO{
         List<Company> companyList = companyQuery.getResultList();
         return companyList;
     }
+
+    @Override
+    public Company add(Company company) {
+        Session session = entityManager.unwrap(Session.class);
+        session.save(company);
+        return null;
+    }
+
+
 }

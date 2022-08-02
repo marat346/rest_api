@@ -1,11 +1,9 @@
-package controller;
+package com.calisto.spring.rest_api.controller;
 
 import com.calisto.spring.rest_api.entity.Company;
 import com.calisto.spring.rest_api.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,12 @@ public class CompanyController {
     public List<Company> company (){
         List<Company> companyList = companyService.getAll();
         return companyList;
+    }
+
+    @PostMapping("/add")
+    public Company company(@RequestBody Company company){
+        Company com = companyService.add(company);
+        return com;
     }
 
 }
