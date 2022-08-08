@@ -27,9 +27,22 @@ public class CompanyDaOImpl implements CompanyDaO{
     @Override
     public Company add(Company company) {
         Session session = entityManager.unwrap(Session.class);
-        session.save(company);
+        session.saveOrUpdate(company);
         return company;
     }
 
+    @Override
+    public Company getCompany(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Company company = session.get(Company.class,id);
+        return company;
+    }
+
+    @Override
+    public void delete(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Company company = session.get(Company.class,id);
+        session.delete(company);
+    }
 
 }

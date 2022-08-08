@@ -23,4 +23,25 @@ public class DocumentDaOImpl implements DocumentDaO{
         List<Document> documentList = documentQuery.getResultList();
         return documentList;
     }
+
+    @Override
+    public Document addDocument(Document document) {
+        Session session = entityManager.unwrap(Session.class);
+        session.saveOrUpdate(document);
+        return document;
+    }
+
+    @Override
+    public Document getDocument(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Document doc = session.get(Document.class,id);
+        return doc;
+    }
+
+    @Override
+    public void delete(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Document doc = session.get(Document.class,id);
+        session.delete(doc);
+    }
 }

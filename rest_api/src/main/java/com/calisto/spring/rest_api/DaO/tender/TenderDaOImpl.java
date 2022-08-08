@@ -23,4 +23,25 @@ public class TenderDaOImpl implements TenderDaO{
         List<Tender> tenderList = tenderQuery.getResultList();
         return tenderList;
     }
+
+    @Override
+    public Tender addTender(Tender tender) {
+        Session session = entityManager.unwrap(Session.class);
+        session.saveOrUpdate(tender);
+        return tender;
+    }
+
+    @Override
+    public Tender getTender(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Tender tender = session.get(Tender.class,id);
+        return tender;
+    }
+
+    @Override
+    public void delete(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        Tender tender = session.get(Tender.class,id);
+        session.delete(tender);
+    }
 }

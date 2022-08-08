@@ -26,4 +26,21 @@ public class CompanyController {
         return com;
     }
 
+    @GetMapping("/get/{id}")
+    public Company getCompany(@PathVariable int id){
+    Company company = companyService.getCompany(id);
+    return company;
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable int id){
+        companyService.delete(id);
+        return "Удалено!";
+    }
+
+    @PostMapping("/edit")
+    public Company editCompany(@RequestBody Company company){
+        Company com = companyService.editCompany(company);
+        return com;
+    }
 }

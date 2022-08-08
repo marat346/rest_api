@@ -18,4 +18,28 @@ public class TenderServiceImpl implements TenderService{
     public List<Tender> getAll() {
         return tenderDaO.getAll();
     }
+
+    @Override
+    @Transactional
+    public Tender addTender(Tender tender) {
+        return tenderDaO.addTender(tender);
+    }
+
+    @Override
+    @Transactional
+    public Tender getTender(int id) {
+        return tenderDaO.getTender(id);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        tenderDaO.delete(id);
+    }
+
+    @Override
+    @Transactional
+    public Tender editTender(Tender tender) {
+        return tenderDaO.addTender(tender);
+    }
 }

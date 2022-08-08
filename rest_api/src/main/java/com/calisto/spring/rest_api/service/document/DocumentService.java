@@ -6,4 +6,12 @@ import java.util.List;
 
 public interface DocumentService {
     public List<Document> getAll();
+
+    Document addDocument(Document document);
+
+    public Document getDocument(int id);
+
+    public void delete(int id);
+
+    public Document editDocument(Document document);
 }

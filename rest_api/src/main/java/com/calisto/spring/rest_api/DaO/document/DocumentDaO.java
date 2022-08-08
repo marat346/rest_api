@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface DocumentDaO {
     public List<Document> getAll();
+
+    public Document addDocument(Document document);
+
+    public Document getDocument(int id);
+
+    public void delete(int id);
 }

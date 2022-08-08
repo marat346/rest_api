@@ -25,4 +25,22 @@ public class CompanyServiceImpl implements CompanyService{
     companyDaO.add(company);
     return company;
     }
+
+    @Override
+    @Transactional
+    public Company getCompany(int id) {
+        return companyDaO.getCompany(id);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        companyDaO.delete(id);
+    }
+
+    @Override
+    @Transactional
+    public Company editCompany(Company company) {
+        return companyDaO.add(company);
+    }
 }
