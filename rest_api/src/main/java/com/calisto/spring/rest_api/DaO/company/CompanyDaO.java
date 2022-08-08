@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CompanyDaO {
     public List<Company> getAll();
+
+    public Company add(Company company);
 }

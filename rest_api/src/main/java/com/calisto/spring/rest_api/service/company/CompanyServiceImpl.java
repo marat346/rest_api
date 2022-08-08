@@ -18,4 +18,11 @@ public class CompanyServiceImpl implements CompanyService{
     public List<Company> getAll() {
         return companyDaO.getAll();
     }
+
+    @Override
+    @Transactional
+    public Company add(Company company) {
+    companyDaO.add(company);
+    return company;
+    }
 }
