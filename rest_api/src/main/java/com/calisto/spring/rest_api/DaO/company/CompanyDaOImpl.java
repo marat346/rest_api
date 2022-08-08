@@ -28,7 +28,7 @@ public class CompanyDaOImpl implements CompanyDaO{
     public Company add(Company company) {
         Session session = entityManager.unwrap(Session.class);
         session.save(company);
-        return null;
+        return company;
     }
 
 

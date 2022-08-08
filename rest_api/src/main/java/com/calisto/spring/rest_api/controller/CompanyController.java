@@ -15,13 +15,13 @@ public class CompanyController {
     CompanyService companyService;
 
     @GetMapping("/all")
-    public List<Company> company (){
+    public List<Company> getAllCompany (){
         List<Company> companyList = companyService.getAll();
         return companyList;
     }
 
     @PostMapping("/add")
-    public Company company(@RequestBody Company company){
+    public Company addCompany(@RequestBody Company company){
         Company com = companyService.add(company);
         return com;
     }
