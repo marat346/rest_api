@@ -1,5 +1,6 @@
 package com.calisto.spring.rest_api.controller;
 
+import com.calisto.spring.rest_api.communication.CompanyInfo;
 import com.calisto.spring.rest_api.entity.Company;
 import com.calisto.spring.rest_api.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class CompanyController {
 
     @Autowired
     CompanyService companyService;
+
+    @Autowired
+    CompanyInfo companyInfo;
 
     @GetMapping("/all")
     public List<Company> getAllCompany (){
@@ -42,5 +46,11 @@ public class CompanyController {
     public Company editCompany(@RequestBody Company company){
         Company com = companyService.editCompany(company);
         return com;
+    }
+
+    @GetMapping("/add/{inn}")
+    public Company getCompany(@PathVariable String inn){
+        Company company = companyInfo.getCompanyInfo(inn);
+        return companyService.add(company);
     }
 }

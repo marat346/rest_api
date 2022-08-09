@@ -12,6 +12,7 @@ public class Employee {
     private String surname;
     private String position;
 
+
     public Employee() {
     }
 
@@ -54,6 +55,6 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", position='" + position + '\'' +
-                '}' + "\n";
+                '}' + '\n';
     }
 }

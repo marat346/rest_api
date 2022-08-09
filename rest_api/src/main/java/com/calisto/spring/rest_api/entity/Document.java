@@ -44,6 +44,6 @@ public class Document {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                '}' + "\n";
+                '}' + '\n';
     }
 }
