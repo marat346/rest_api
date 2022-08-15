@@ -3,9 +3,12 @@ package com.calisto.spring.rest_api.controller;
 import com.calisto.spring.rest_api.communication.CompanyInfo;
 import com.calisto.spring.rest_api.entity.Company;
 import com.calisto.spring.rest_api.service.company.CompanyService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -49,8 +52,9 @@ public class CompanyController {
     }
 
     @GetMapping("/add/{inn}")
-    public Company getCompany(@PathVariable String inn){
+    public Company getCompany(@PathVariable String inn) throws JsonProcessingException, ParseException, UnsupportedEncodingException {
         Company company = companyInfo.getCompanyInfo(inn);
-        return companyService.add(company);
+//        return companyService.add(company);
+        return null;
     }
 }

@@ -1,124 +1,126 @@
 package com.calisto.spring.rest_api.entity.json;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
-public class Attributes {
-    @JsonProperty("Р”Р°С‚Р°Р’С‹Рі")
-    public String РґР°С‚Р°Р’С‹Рі;
+public class Attributes{
+    @JsonProperty("ДатаВыг")
+    public String датаВыг;
     public String zip_file;
     public String xml_file;
-    @JsonProperty("РћР“Р Рќ")
-    public String РѕР“Р Рќ;
-    @JsonProperty("Р”Р°С‚Р°РћР“Р Рќ")
-    public String РґР°С‚Р°РћР“Р Рќ;
-    @JsonProperty("РљРѕРґРЎРїРћР±СЂР®Р›")
-    public String РєРѕРґРЎРїРћР±СЂР®Р›;
-    @JsonProperty("РќР°РёРјРЎРїРћР±СЂР®Р›")
-    public String РЅР°РёРјРЎРїРћР±СЂР®Р›;
-    @JsonProperty("Р“Р Рќ")
-    public String РіР Рќ;
-    @JsonProperty("Р”Р°С‚Р°Р—Р°РїРёСЃРё")
-    public String РґР°С‚Р°Р—Р°РїРёСЃРё;
-    @JsonProperty("РљРѕРґРќРћ")
-    public String РєРѕРґРќРћ;
-    @JsonProperty("РќР°РёРјРќРћ")
-    public String РЅР°РёРјРќРћ;
-    @JsonProperty("РђРґСЂР Рћ")
-    public String Р°РґСЂР Рћ;
-    @JsonProperty("РРќРќ")
-    public String РёРќРќ;
-    @JsonProperty("РљРџРџ")
-    public String РєРџРџ;
-    @JsonProperty("Р”Р°С‚Р°РџРѕСЃС‚РЈС‡")
-    public String РґР°С‚Р°РџРѕСЃС‚РЈС‡;
-    @JsonProperty("Р РµРіРќРѕРјРџР¤")
-    public String СЂРµРіРќРѕРјРџР¤;
-    @JsonProperty("Р”Р°С‚Р°Р РµРі")
-    public String РґР°С‚Р°Р РµРі;
-    @JsonProperty("РљРѕРґРџР¤")
-    public String РєРѕРґРџР¤;
-    @JsonProperty("РќР°РёРјРџР¤")
-    public String РЅР°РёРјРџР¤;
-    @JsonProperty("Р”Р°С‚Р°Р’С‹Рї")
-    public String РґР°С‚Р°Р’С‹Рї;
-    @JsonProperty("РЎРїСЂРћРџР¤")
-    public String СЃРїСЂРћРџР¤;
-    @JsonProperty("РљРѕРґРћРџР¤")
-    public String РєРѕРґРћРџР¤;
-    @JsonProperty("РџРѕР»РЅРќР°РёРјРћРџР¤")
-    public String РїРѕР»РЅРќР°РёРјРћРџР¤;
-    @JsonProperty("Р РµРіРќРѕРјР¤РЎРЎ")
-    public String СЂРµРіРќРѕРјР¤РЎРЎ;
-    @JsonProperty("РљРѕРґР¤РЎРЎ")
-    public String РєРѕРґР¤РЎРЎ;
-    @JsonProperty("РќР°РёРјР¤РЎРЎ")
-    public String РЅР°РёРјР¤РЎРЎ;
-    @JsonProperty("РќР°РёРјР’РёРґРљР°Рї")
-    public String РЅР°РёРјР’РёРґРљР°Рї;
-    @JsonProperty("РЎСѓРјРљР°Рї")
-    public String СЃСѓРјРљР°Рї;
-    @JsonProperty("Р¤Р°РјРёР»РёСЏ")
-    public String С„Р°РјРёР»РёСЏ;
-    @JsonProperty("РРјСЏ")
-    public String РёРјСЏ;
-    @JsonProperty("РћС‚С‡РµСЃС‚РІРѕ")
-    public String РѕС‚С‡РµСЃС‚РІРѕ;
-    @JsonProperty("РРќРќР¤Р›")
-    public String РёРќРќР¤Р›;
-    @JsonProperty("Р’РёРґР”РѕР»Р¶РЅ")
-    public String РІРёРґР”РѕР»Р¶РЅ;
-    @JsonProperty("РќР°РёРјР’РёРґР”РѕР»Р¶РЅ")
-    public String РЅР°РёРјР’РёРґР”РѕР»Р¶РЅ;
-    @JsonProperty("РќР°РёРјР”РѕР»Р¶РЅ")
-    public String РЅР°РёРјР”РѕР»Р¶РЅ;
-    @JsonProperty("РќР°РёРјР®Р›РџРѕР»РЅ")
-    public String РЅР°РёРјР®Р›РџРѕР»РЅ;
-    @JsonProperty("РќР°РёРјР®Р›РЎРѕРєСЂ")
-    public String РЅР°РёРјР®Р›РЎРѕРєСЂ;
-    @JsonProperty("РќРѕРјРёРЅРЎС‚РѕРёРј")
-    public String РЅРѕРјРёРЅРЎС‚РѕРёРј;
-    @JsonProperty("РљРѕРґРћРљР’Р­Р”")
-    public String РєРѕРґРћРљР’Р­Р”;
-    @JsonProperty("РќР°РёРјРћРљР’Р­Р”")
-    public String РЅР°РёРјРћРљР’Р­Р”;
-    @JsonProperty("РџСЂР’РµСЂСЃРћРљР’Р­Р”")
-    public String РїСЂР’РµСЂСЃРћРљР’Р­Р”;
-    @JsonProperty("РќРѕРјР›РёС†")
-    public String РЅРѕРјР›РёС†;
-    @JsonProperty("Р”Р°С‚Р°Р›РёС†")
-    public String РґР°С‚Р°Р›РёС†;
-    @JsonProperty("Р”Р°С‚Р°РќР°С‡Р›РёС†")
-    public String РґР°С‚Р°РќР°С‡Р›РёС†;
-    @JsonProperty("Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†")
-    public String РґР°С‚Р°РћРєРѕРЅС‡Р›РёС†;
-    @JsonProperty("РРґР—Р°Рї")
-    public String РёРґР—Р°Рї;
-    @JsonProperty("Р”Р°С‚Р°Р—Р°Рї")
-    public String РґР°С‚Р°Р—Р°Рї;
-    @JsonProperty("РљРѕРґРЎРџР’Р—")
-    public String РєРѕРґРЎРџР’Р—;
-    @JsonProperty("РќР°РёРјР’РёРґР—Р°Рї")
-    public String РЅР°РёРјР’РёРґР—Р°Рї;
-    @JsonProperty("РЎРµСЂРёСЏ")
-    public String СЃРµСЂРёСЏ;
-    @JsonProperty("РќРѕРјРµСЂ")
-    public String РЅРѕРјРµСЂ;
-    @JsonProperty("Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ")
-    public String РґР°С‚Р°Р’С‹РґРЎРІРёРґ;
+    @JsonProperty("ОГРН")
+    public String оГРН;
+    @JsonProperty("ДатаОГРН")
+    public String датаОГРН;
+    @JsonProperty("КодСпОбрЮЛ")
+    public String кодСпОбрЮЛ;
+    @JsonProperty("НаимСпОбрЮЛ")
+    public String наимСпОбрЮЛ;
+    @JsonProperty("ГРН")
+    public String гРН;
+    @JsonProperty("ДатаЗаписи")
+    public String датаЗаписи;
+    @JsonProperty("КодНО")
+    public String кодНО;
+    @JsonProperty("НаимНО")
+    public String наимНО;
+    @JsonProperty("АдрРО")
+    public String адрРО;
+    @JsonProperty("ИНН")
+    public String иНН;
+    @JsonProperty("КПП")
+    public String кПП;
+    @JsonProperty("ДатаПостУч")
+    public String датаПостУч;
+    @JsonProperty("РегНомПФ")
+    public String регНомПФ;
+    @JsonProperty("ДатаРег")
+    public String датаРег;
+    @JsonProperty("КодПФ")
+    public String кодПФ;
+    @JsonProperty("НаимПФ")
+    public String наимПФ;
+    @JsonProperty("ДатаВып")
+    public String датаВып;
+    @JsonProperty("СпрОПФ")
+    public String спрОПФ;
+    @JsonProperty("КодОПФ")
+    public String кодОПФ;
+    @JsonProperty("ПолнНаимОПФ")
+    public String полнНаимОПФ;
+    @JsonProperty("РегНомФСС")
+    public String регНомФСС;
+    @JsonProperty("КодФСС")
+    public String кодФСС;
+    @JsonProperty("НаимФСС")
+    public String наимФСС;
+    @JsonProperty("НаимВидКап")
+    public String наимВидКап;
+    @JsonProperty("СумКап")
+    public String сумКап;
+    @JsonProperty("Фамилия")
+    public String фамилия;
+    @JsonProperty("Имя")
+    public String имя;
+    @JsonProperty("Отчество")
+    public String отчество;
+    @JsonProperty("ИННФЛ")
+    public String иННФЛ;
+    @JsonProperty("ВидДолжн")
+    public String видДолжн;
+    @JsonProperty("НаимВидДолжн")
+    public String наимВидДолжн;
+    @JsonProperty("НаимДолжн")
+    public String наимДолжн;
+    @JsonProperty("НаимЮЛПолн")
+    public String наимЮЛПолн;
+    @JsonProperty("НаимЮЛСокр")
+    public String наимЮЛСокр;
+    @JsonProperty("НоминСтоим")
+    public String номинСтоим;
+    @JsonProperty("КодОКВЭД")
+    public String кодОКВЭД;
+    @JsonProperty("НаимОКВЭД")
+    public String наимОКВЭД;
+    @JsonProperty("ПрВерсОКВЭД")
+    public String прВерсОКВЭД;
+    @JsonProperty("НомЛиц")
+    public String номЛиц;
+    @JsonProperty("ДатаЛиц")
+    public String датаЛиц;
+    @JsonProperty("ДатаНачЛиц")
+    public String датаНачЛиц;
+    @JsonProperty("ДатаОкончЛиц")
+    public String датаОкончЛиц;
+    @JsonProperty("ИдЗап")
+    public String идЗап;
+    @JsonProperty("ДатаЗап")
+    public String датаЗап;
+    @JsonProperty("КодСПВЗ")
+    public String кодСПВЗ;
+    @JsonProperty("НаимВидЗап")
+    public String наимВидЗап;
+    @JsonProperty("Серия")
+    public String серия;
+    @JsonProperty("Номер")
+    public String номер;
+    @JsonProperty("ДатаВыдСвид")
+    public String датаВыдСвид;
     public String income;
     public String outcome;
-    @JsonProperty("РРЅРґРµРєСЃ")
-    public String РёРЅРґРµРєСЃ;
-    @JsonProperty("РљРѕРґР РµРіРёРѕРЅ")
-    public String РєРѕРґР РµРіРёРѕРЅ;
-    @JsonProperty("РљРѕРґРђРґСЂРљР»Р°РґСЂ")
-    public String РєРѕРґРђРґСЂРљР»Р°РґСЂ;
-    @JsonProperty("Р”РѕРј")
-    public String РґРѕРј;
-    @JsonProperty("РљРѕСЂРїСѓСЃ")
-    public String РєРѕСЂРїСѓСЃ;
-    @JsonProperty("РљРІР°СЂС‚")
-    public String РєРІР°СЂС‚;
+    @JsonProperty("Индекс")
+    public String индекс;
+    @JsonProperty("КодРегион")
+    public String кодРегион;
+    @JsonProperty("КодАдрКладр")
+    public String кодАдрКладр;
+    @JsonProperty("Дом")
+    public String дом;
+    @JsonProperty("Корпус")
+    public String корпус;
+    @JsonProperty("Кварт")
+    public String кварт;
     public String tax_id_1;
     public String tax_id_2;
     public String tax_id_3;
@@ -138,24 +140,24 @@ public class Attributes {
     public String misuse;
     public String y;
     public String tax_system;
-    @JsonProperty("РўРёРїР РµРіРёРѕРЅ")
-    public String С‚РёРїР РµРіРёРѕРЅ;
-    @JsonProperty("РќР°РёРјР РµРіРёРѕРЅ")
-    public String РЅР°РёРјР РµРіРёРѕРЅ;
-    @JsonProperty("РўРёРїРЈР»РёС†Р°")
-    public String С‚РёРїРЈР»РёС†Р°;
-    @JsonProperty("РќР°РёРјРЈР»РёС†Р°")
-    public String РЅР°РёРјРЈР»РёС†Р°;
+    @JsonProperty("ТипРегион")
+    public String типРегион;
+    @JsonProperty("НаимРегион")
+    public String наимРегион;
+    @JsonProperty("ТипУлица")
+    public String типУлица;
+    @JsonProperty("НаимУлица")
+    public String наимУлица;
 
     public Attributes() {
     }
 
-    public String getР”Р°С‚Р°Р’С‹Рі() {
-        return РґР°С‚Р°Р’С‹Рі;
+    public String getДатаВыг() {
+        return датаВыг;
     }
 
-    public void setР”Р°С‚Р°Р’С‹Рі(String РґР°С‚Р°Р’С‹Рі) {
-        this.РґР°С‚Р°Р’С‹Рі = РґР°С‚Р°Р’С‹Рі;
+    public void setДатаВыг(String датаВыг) {
+        this.датаВыг = датаВыг;
     }
 
     public String getZip_file() {
@@ -174,396 +176,396 @@ public class Attributes {
         this.xml_file = xml_file;
     }
 
-    public String getРѕР“Р Рќ() {
-        return РѕР“Р Рќ;
+    public String getоГРН() {
+        return оГРН;
     }
 
-    public void setРѕР“Р Рќ(String РѕР“Р Рќ) {
-        this.РѕР“Р Рќ = РѕР“Р Рќ;
+    public void setоГРН(String оГРН) {
+        this.оГРН = оГРН;
     }
 
-    public String getР”Р°С‚Р°РћР“Р Рќ() {
-        return РґР°С‚Р°РћР“Р Рќ;
+    public String getДатаОГРН() {
+        return датаОГРН;
     }
 
-    public void setР”Р°С‚Р°РћР“Р Рќ(String РґР°С‚Р°РћР“Р Рќ) {
-        this.РґР°С‚Р°РћР“Р Рќ = РґР°С‚Р°РћР“Р Рќ;
+    public void setДатаОГРН(String датаОГРН) {
+        this.датаОГРН = датаОГРН;
     }
 
-    public String getРљРѕРґРЎРїРћР±СЂР®Р›() {
-        return РєРѕРґРЎРїРћР±СЂР®Р›;
+    public String getКодСпОбрЮЛ() {
+        return кодСпОбрЮЛ;
     }
 
-    public void setРљРѕРґРЎРїРћР±СЂР®Р›(String РєРѕРґРЎРїРћР±СЂР®Р›) {
-        this.РєРѕРґРЎРїРћР±СЂР®Р› = РєРѕРґРЎРїРћР±СЂР®Р›;
+    public void setКодСпОбрЮЛ(String кодСпОбрЮЛ) {
+        this.кодСпОбрЮЛ = кодСпОбрЮЛ;
     }
 
-    public String getРќР°РёРјРЎРїРћР±СЂР®Р›() {
-        return РЅР°РёРјРЎРїРћР±СЂР®Р›;
+    public String getНаимСпОбрЮЛ() {
+        return наимСпОбрЮЛ;
     }
 
-    public void setРќР°РёРјРЎРїРћР±СЂР®Р›(String РЅР°РёРјРЎРїРћР±СЂР®Р›) {
-        this.РЅР°РёРјРЎРїРћР±СЂР®Р› = РЅР°РёРјРЎРїРћР±СЂР®Р›;
+    public void setНаимСпОбрЮЛ(String наимСпОбрЮЛ) {
+        this.наимСпОбрЮЛ = наимСпОбрЮЛ;
     }
 
-    public String getРіР Рќ() {
-        return РіР Рќ;
+    public String getгРН() {
+        return гРН;
     }
 
-    public void setРіР Рќ(String РіР Рќ) {
-        this.РіР Рќ = РіР Рќ;
+    public void setгРН(String гРН) {
+        this.гРН = гРН;
     }
 
-    public String getР”Р°С‚Р°Р—Р°РїРёСЃРё() {
-        return РґР°С‚Р°Р—Р°РїРёСЃРё;
+    public String getДатаЗаписи() {
+        return датаЗаписи;
     }
 
-    public void setР”Р°С‚Р°Р—Р°РїРёСЃРё(String РґР°С‚Р°Р—Р°РїРёСЃРё) {
-        this.РґР°С‚Р°Р—Р°РїРёСЃРё = РґР°С‚Р°Р—Р°РїРёСЃРё;
+    public void setДатаЗаписи(String датаЗаписи) {
+        this.датаЗаписи = датаЗаписи;
     }
 
-    public String getРљРѕРґРќРћ() {
-        return РєРѕРґРќРћ;
+    public String getКодНО() {
+        return кодНО;
     }
 
-    public void setРљРѕРґРќРћ(String РєРѕРґРќРћ) {
-        this.РєРѕРґРќРћ = РєРѕРґРќРћ;
+    public void setКодНО(String кодНО) {
+        this.кодНО = кодНО;
     }
 
-    public String getРќР°РёРјРќРћ() {
-        return РЅР°РёРјРќРћ;
+    public String getНаимНО() {
+        return наимНО;
     }
 
-    public void setРќР°РёРјРќРћ(String РЅР°РёРјРќРћ) {
-        this.РЅР°РёРјРќРћ = РЅР°РёРјРќРћ;
+    public void setНаимНО(String наимНО) {
+        this.наимНО = наимНО;
     }
 
-    public String getРђРґСЂР Рћ() {
-        return Р°РґСЂР Рћ;
+    public String getАдрРО() {
+        return адрРО;
     }
 
-    public void setРђРґСЂР Рћ(String Р°РґСЂР Рћ) {
-        this.Р°РґСЂР Рћ = Р°РґСЂР Рћ;
+    public void setАдрРО(String адрРО) {
+        this.адрРО = адрРО;
     }
 
-    public String getРёРќРќ() {
-        return РёРќРќ;
+    public String getиНН() {
+        return иНН;
     }
 
-    public void setРёРќРќ(String РёРќРќ) {
-        this.РёРќРќ = РёРќРќ;
+    public void setиНН(String иНН) {
+        this.иНН = иНН;
     }
 
-    public String getРєРџРџ() {
-        return РєРџРџ;
+    public String getкПП() {
+        return кПП;
     }
 
-    public void setРєРџРџ(String РєРџРџ) {
-        this.РєРџРџ = РєРџРџ;
+    public void setкПП(String кПП) {
+        this.кПП = кПП;
     }
 
-    public String getР”Р°С‚Р°РџРѕСЃС‚РЈС‡() {
-        return РґР°С‚Р°РџРѕСЃС‚РЈС‡;
+    public String getДатаПостУч() {
+        return датаПостУч;
     }
 
-    public void setР”Р°С‚Р°РџРѕСЃС‚РЈС‡(String РґР°С‚Р°РџРѕСЃС‚РЈС‡) {
-        this.РґР°С‚Р°РџРѕСЃС‚РЈС‡ = РґР°С‚Р°РџРѕСЃС‚РЈС‡;
+    public void setДатаПостУч(String датаПостУч) {
+        this.датаПостУч = датаПостУч;
     }
 
-    public String getР РµРіРќРѕРјРџР¤() {
-        return СЂРµРіРќРѕРјРџР¤;
+    public String getРегНомПФ() {
+        return регНомПФ;
     }
 
-    public void setР РµРіРќРѕРјРџР¤(String СЂРµРіРќРѕРјРџР¤) {
-        this.СЂРµРіРќРѕРјРџР¤ = СЂРµРіРќРѕРјРџР¤;
+    public void setРегНомПФ(String регНомПФ) {
+        this.регНомПФ = регНомПФ;
     }
 
-    public String getР”Р°С‚Р°Р РµРі() {
-        return РґР°С‚Р°Р РµРі;
+    public String getДатаРег() {
+        return датаРег;
     }
 
-    public void setР”Р°С‚Р°Р РµРі(String РґР°С‚Р°Р РµРі) {
-        this.РґР°С‚Р°Р РµРі = РґР°С‚Р°Р РµРі;
+    public void setДатаРег(String датаРег) {
+        this.датаРег = датаРег;
     }
 
-    public String getРљРѕРґРџР¤() {
-        return РєРѕРґРџР¤;
+    public String getКодПФ() {
+        return кодПФ;
     }
 
-    public void setРљРѕРґРџР¤(String РєРѕРґРџР¤) {
-        this.РєРѕРґРџР¤ = РєРѕРґРџР¤;
+    public void setКодПФ(String кодПФ) {
+        this.кодПФ = кодПФ;
     }
 
-    public String getРќР°РёРјРџР¤() {
-        return РЅР°РёРјРџР¤;
+    public String getНаимПФ() {
+        return наимПФ;
     }
 
-    public void setРќР°РёРјРџР¤(String РЅР°РёРјРџР¤) {
-        this.РЅР°РёРјРџР¤ = РЅР°РёРјРџР¤;
+    public void setНаимПФ(String наимПФ) {
+        this.наимПФ = наимПФ;
     }
 
-    public String getР”Р°С‚Р°Р’С‹Рї() {
-        return РґР°С‚Р°Р’С‹Рї;
+    public String getДатаВып() {
+        return датаВып;
     }
 
-    public void setР”Р°С‚Р°Р’С‹Рї(String РґР°С‚Р°Р’С‹Рї) {
-        this.РґР°С‚Р°Р’С‹Рї = РґР°С‚Р°Р’С‹Рї;
+    public void setДатаВып(String датаВып) {
+        this.датаВып = датаВып;
     }
 
-    public String getРЎРїСЂРћРџР¤() {
-        return СЃРїСЂРћРџР¤;
+    public String getСпрОПФ() {
+        return спрОПФ;
     }
 
-    public void setРЎРїСЂРћРџР¤(String СЃРїСЂРћРџР¤) {
-        this.СЃРїСЂРћРџР¤ = СЃРїСЂРћРџР¤;
+    public void setСпрОПФ(String спрОПФ) {
+        this.спрОПФ = спрОПФ;
     }
 
-    public String getРљРѕРґРћРџР¤() {
-        return РєРѕРґРћРџР¤;
+    public String getКодОПФ() {
+        return кодОПФ;
     }
 
-    public void setРљРѕРґРћРџР¤(String РєРѕРґРћРџР¤) {
-        this.РєРѕРґРћРџР¤ = РєРѕРґРћРџР¤;
+    public void setКодОПФ(String кодОПФ) {
+        this.кодОПФ = кодОПФ;
     }
 
-    public String getРџРѕР»РЅРќР°РёРјРћРџР¤() {
-        return РїРѕР»РЅРќР°РёРјРћРџР¤;
+    public String getПолнНаимОПФ() {
+        return полнНаимОПФ;
     }
 
-    public void setРџРѕР»РЅРќР°РёРјРћРџР¤(String РїРѕР»РЅРќР°РёРјРћРџР¤) {
-        this.РїРѕР»РЅРќР°РёРјРћРџР¤ = РїРѕР»РЅРќР°РёРјРћРџР¤;
+    public void setПолнНаимОПФ(String полнНаимОПФ) {
+        this.полнНаимОПФ = полнНаимОПФ;
     }
 
-    public String getР РµРіРќРѕРјР¤РЎРЎ() {
-        return СЂРµРіРќРѕРјР¤РЎРЎ;
+    public String getРегНомФСС() {
+        return регНомФСС;
     }
 
-    public void setР РµРіРќРѕРјР¤РЎРЎ(String СЂРµРіРќРѕРјР¤РЎРЎ) {
-        this.СЂРµРіРќРѕРјР¤РЎРЎ = СЂРµРіРќРѕРјР¤РЎРЎ;
+    public void setРегНомФСС(String регНомФСС) {
+        this.регНомФСС = регНомФСС;
     }
 
-    public String getРљРѕРґР¤РЎРЎ() {
-        return РєРѕРґР¤РЎРЎ;
+    public String getКодФСС() {
+        return кодФСС;
     }
 
-    public void setРљРѕРґР¤РЎРЎ(String РєРѕРґР¤РЎРЎ) {
-        this.РєРѕРґР¤РЎРЎ = РєРѕРґР¤РЎРЎ;
+    public void setКодФСС(String кодФСС) {
+        this.кодФСС = кодФСС;
     }
 
-    public String getРќР°РёРјР¤РЎРЎ() {
-        return РЅР°РёРјР¤РЎРЎ;
+    public String getНаимФСС() {
+        return наимФСС;
     }
 
-    public void setРќР°РёРјР¤РЎРЎ(String РЅР°РёРјР¤РЎРЎ) {
-        this.РЅР°РёРјР¤РЎРЎ = РЅР°РёРјР¤РЎРЎ;
+    public void setНаимФСС(String наимФСС) {
+        this.наимФСС = наимФСС;
     }
 
-    public String getРќР°РёРјР’РёРґРљР°Рї() {
-        return РЅР°РёРјР’РёРґРљР°Рї;
+    public String getНаимВидКап() {
+        return наимВидКап;
     }
 
-    public void setРќР°РёРјР’РёРґРљР°Рї(String РЅР°РёРјР’РёРґРљР°Рї) {
-        this.РЅР°РёРјР’РёРґРљР°Рї = РЅР°РёРјР’РёРґРљР°Рї;
+    public void setНаимВидКап(String наимВидКап) {
+        this.наимВидКап = наимВидКап;
     }
 
-    public String getРЎСѓРјРљР°Рї() {
-        return СЃСѓРјРљР°Рї;
+    public String getСумКап() {
+        return сумКап;
     }
 
-    public void setРЎСѓРјРљР°Рї(String СЃСѓРјРљР°Рї) {
-        this.СЃСѓРјРљР°Рї = СЃСѓРјРљР°Рї;
+    public void setСумКап(String сумКап) {
+        this.сумКап = сумКап;
     }
 
-    public String getР¤Р°РјРёР»РёСЏ() {
-        return С„Р°РјРёР»РёСЏ;
+    public String getФамилия() {
+        return фамилия;
     }
 
-    public void setР¤Р°РјРёР»РёСЏ(String С„Р°РјРёР»РёСЏ) {
-        this.С„Р°РјРёР»РёСЏ = С„Р°РјРёР»РёСЏ;
+    public void setФамилия(String фамилия) {
+        this.фамилия = фамилия;
     }
 
-    public String getРРјСЏ() {
-        return РёРјСЏ;
+    public String getИмя() {
+        return имя;
     }
 
-    public void setРРјСЏ(String РёРјСЏ) {
-        this.РёРјСЏ = РёРјСЏ;
+    public void setИмя(String имя) {
+        this.имя = имя;
     }
 
-    public String getРћС‚С‡РµСЃС‚РІРѕ() {
-        return РѕС‚С‡РµСЃС‚РІРѕ;
+    public String getОтчество() {
+        return отчество;
     }
 
-    public void setРћС‚С‡РµСЃС‚РІРѕ(String РѕС‚С‡РµСЃС‚РІРѕ) {
-        this.РѕС‚С‡РµСЃС‚РІРѕ = РѕС‚С‡РµСЃС‚РІРѕ;
+    public void setОтчество(String отчество) {
+        this.отчество = отчество;
     }
 
-    public String getРёРќРќР¤Р›() {
-        return РёРќРќР¤Р›;
+    public String getиННФЛ() {
+        return иННФЛ;
     }
 
-    public void setРёРќРќР¤Р›(String РёРќРќР¤Р›) {
-        this.РёРќРќР¤Р› = РёРќРќР¤Р›;
+    public void setиННФЛ(String иННФЛ) {
+        this.иННФЛ = иННФЛ;
     }
 
-    public String getР’РёРґР”РѕР»Р¶РЅ() {
-        return РІРёРґР”РѕР»Р¶РЅ;
+    public String getВидДолжн() {
+        return видДолжн;
     }
 
-    public void setР’РёРґР”РѕР»Р¶РЅ(String РІРёРґР”РѕР»Р¶РЅ) {
-        this.РІРёРґР”РѕР»Р¶РЅ = РІРёРґР”РѕР»Р¶РЅ;
+    public void setВидДолжн(String видДолжн) {
+        this.видДолжн = видДолжн;
     }
 
-    public String getРќР°РёРјР’РёРґР”РѕР»Р¶РЅ() {
-        return РЅР°РёРјР’РёРґР”РѕР»Р¶РЅ;
+    public String getНаимВидДолжн() {
+        return наимВидДолжн;
     }
 
-    public void setРќР°РёРјР’РёРґР”РѕР»Р¶РЅ(String РЅР°РёРјР’РёРґР”РѕР»Р¶РЅ) {
-        this.РЅР°РёРјР’РёРґР”РѕР»Р¶РЅ = РЅР°РёРјР’РёРґР”РѕР»Р¶РЅ;
+    public void setНаимВидДолжн(String наимВидДолжн) {
+        this.наимВидДолжн = наимВидДолжн;
     }
 
-    public String getРќР°РёРјР”РѕР»Р¶РЅ() {
-        return РЅР°РёРјР”РѕР»Р¶РЅ;
+    public String getНаимДолжн() {
+        return наимДолжн;
     }
 
-    public void setРќР°РёРјР”РѕР»Р¶РЅ(String РЅР°РёРјР”РѕР»Р¶РЅ) {
-        this.РЅР°РёРјР”РѕР»Р¶РЅ = РЅР°РёРјР”РѕР»Р¶РЅ;
+    public void setНаимДолжн(String наимДолжн) {
+        this.наимДолжн = наимДолжн;
     }
 
-    public String getРќР°РёРјР®Р›РџРѕР»РЅ() {
-        return РЅР°РёРјР®Р›РџРѕР»РЅ;
+    public String getНаимЮЛПолн() {
+        return наимЮЛПолн;
     }
 
-    public void setРќР°РёРјР®Р›РџРѕР»РЅ(String РЅР°РёРјР®Р›РџРѕР»РЅ) {
-        this.РЅР°РёРјР®Р›РџРѕР»РЅ = РЅР°РёРјР®Р›РџРѕР»РЅ;
+    public void setНаимЮЛПолн(String наимЮЛПолн) {
+        this.наимЮЛПолн = наимЮЛПолн;
     }
 
-    public String getРќР°РёРјР®Р›РЎРѕРєСЂ() {
-        return РЅР°РёРјР®Р›РЎРѕРєСЂ;
+    public String getНаимЮЛСокр() {
+        return наимЮЛСокр;
     }
 
-    public void setРќР°РёРјР®Р›РЎРѕРєСЂ(String РЅР°РёРјР®Р›РЎРѕРєСЂ) {
-        this.РЅР°РёРјР®Р›РЎРѕРєСЂ = РЅР°РёРјР®Р›РЎРѕРєСЂ;
+    public void setНаимЮЛСокр(String наимЮЛСокр) {
+        this.наимЮЛСокр = наимЮЛСокр;
     }
 
-    public String getРќРѕРјРёРЅРЎС‚РѕРёРј() {
-        return РЅРѕРјРёРЅРЎС‚РѕРёРј;
+    public String getНоминСтоим() {
+        return номинСтоим;
     }
 
-    public void setРќРѕРјРёРЅРЎС‚РѕРёРј(String РЅРѕРјРёРЅРЎС‚РѕРёРј) {
-        this.РЅРѕРјРёРЅРЎС‚РѕРёРј = РЅРѕРјРёРЅРЎС‚РѕРёРј;
+    public void setНоминСтоим(String номинСтоим) {
+        this.номинСтоим = номинСтоим;
     }
 
-    public String getРљРѕРґРћРљР’Р­Р”() {
-        return РєРѕРґРћРљР’Р­Р”;
+    public String getКодОКВЭД() {
+        return кодОКВЭД;
     }
 
-    public void setРљРѕРґРћРљР’Р­Р”(String РєРѕРґРћРљР’Р­Р”) {
-        this.РєРѕРґРћРљР’Р­Р” = РєРѕРґРћРљР’Р­Р”;
+    public void setКодОКВЭД(String кодОКВЭД) {
+        this.кодОКВЭД = кодОКВЭД;
     }
 
-    public String getРќР°РёРјРћРљР’Р­Р”() {
-        return РЅР°РёРјРћРљР’Р­Р”;
+    public String getНаимОКВЭД() {
+        return наимОКВЭД;
     }
 
-    public void setРќР°РёРјРћРљР’Р­Р”(String РЅР°РёРјРћРљР’Р­Р”) {
-        this.РЅР°РёРјРћРљР’Р­Р” = РЅР°РёРјРћРљР’Р­Р”;
+    public void setНаимОКВЭД(String наимОКВЭД) {
+        this.наимОКВЭД = наимОКВЭД;
     }
 
-    public String getРџСЂР’РµСЂСЃРћРљР’Р­Р”() {
-        return РїСЂР’РµСЂСЃРћРљР’Р­Р”;
+    public String getПрВерсОКВЭД() {
+        return прВерсОКВЭД;
     }
 
-    public void setРџСЂР’РµСЂСЃРћРљР’Р­Р”(String РїСЂР’РµСЂСЃРћРљР’Р­Р”) {
-        this.РїСЂР’РµСЂСЃРћРљР’Р­Р” = РїСЂР’РµСЂСЃРћРљР’Р­Р”;
+    public void setПрВерсОКВЭД(String прВерсОКВЭД) {
+        this.прВерсОКВЭД = прВерсОКВЭД;
     }
 
-    public String getРќРѕРјР›РёС†() {
-        return РЅРѕРјР›РёС†;
+    public String getНомЛиц() {
+        return номЛиц;
     }
 
-    public void setРќРѕРјР›РёС†(String РЅРѕРјР›РёС†) {
-        this.РЅРѕРјР›РёС† = РЅРѕРјР›РёС†;
+    public void setНомЛиц(String номЛиц) {
+        this.номЛиц = номЛиц;
     }
 
-    public String getР”Р°С‚Р°Р›РёС†() {
-        return РґР°С‚Р°Р›РёС†;
+    public String getДатаЛиц() {
+        return датаЛиц;
     }
 
-    public void setР”Р°С‚Р°Р›РёС†(String РґР°С‚Р°Р›РёС†) {
-        this.РґР°С‚Р°Р›РёС† = РґР°С‚Р°Р›РёС†;
+    public void setДатаЛиц(String датаЛиц) {
+        this.датаЛиц = датаЛиц;
     }
 
-    public String getР”Р°С‚Р°РќР°С‡Р›РёС†() {
-        return РґР°С‚Р°РќР°С‡Р›РёС†;
+    public String getДатаНачЛиц() {
+        return датаНачЛиц;
     }
 
-    public void setР”Р°С‚Р°РќР°С‡Р›РёС†(String РґР°С‚Р°РќР°С‡Р›РёС†) {
-        this.РґР°С‚Р°РќР°С‡Р›РёС† = РґР°С‚Р°РќР°С‡Р›РёС†;
+    public void setДатаНачЛиц(String датаНачЛиц) {
+        this.датаНачЛиц = датаНачЛиц;
     }
 
-    public String getР”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†() {
-        return РґР°С‚Р°РћРєРѕРЅС‡Р›РёС†;
+    public String getДатаОкончЛиц() {
+        return датаОкончЛиц;
     }
 
-    public void setР”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†(String РґР°С‚Р°РћРєРѕРЅС‡Р›РёС†) {
-        this.РґР°С‚Р°РћРєРѕРЅС‡Р›РёС† = РґР°С‚Р°РћРєРѕРЅС‡Р›РёС†;
+    public void setДатаОкончЛиц(String датаОкончЛиц) {
+        this.датаОкончЛиц = датаОкончЛиц;
     }
 
-    public String getРРґР—Р°Рї() {
-        return РёРґР—Р°Рї;
+    public String getИдЗап() {
+        return идЗап;
     }
 
-    public void setРРґР—Р°Рї(String РёРґР—Р°Рї) {
-        this.РёРґР—Р°Рї = РёРґР—Р°Рї;
+    public void setИдЗап(String идЗап) {
+        this.идЗап = идЗап;
     }
 
-    public String getР”Р°С‚Р°Р—Р°Рї() {
-        return РґР°С‚Р°Р—Р°Рї;
+    public String getДатаЗап() {
+        return датаЗап;
     }
 
-    public void setР”Р°С‚Р°Р—Р°Рї(String РґР°С‚Р°Р—Р°Рї) {
-        this.РґР°С‚Р°Р—Р°Рї = РґР°С‚Р°Р—Р°Рї;
+    public void setДатаЗап(String датаЗап) {
+        this.датаЗап = датаЗап;
     }
 
-    public String getРљРѕРґРЎРџР’Р—() {
-        return РєРѕРґРЎРџР’Р—;
+    public String getКодСПВЗ() {
+        return кодСПВЗ;
     }
 
-    public void setРљРѕРґРЎРџР’Р—(String РєРѕРґРЎРџР’Р—) {
-        this.РєРѕРґРЎРџР’Р— = РєРѕРґРЎРџР’Р—;
+    public void setКодСПВЗ(String кодСПВЗ) {
+        this.кодСПВЗ = кодСПВЗ;
     }
 
-    public String getРќР°РёРјР’РёРґР—Р°Рї() {
-        return РЅР°РёРјР’РёРґР—Р°Рї;
+    public String getНаимВидЗап() {
+        return наимВидЗап;
     }
 
-    public void setРќР°РёРјР’РёРґР—Р°Рї(String РЅР°РёРјР’РёРґР—Р°Рї) {
-        this.РЅР°РёРјР’РёРґР—Р°Рї = РЅР°РёРјР’РёРґР—Р°Рї;
+    public void setНаимВидЗап(String наимВидЗап) {
+        this.наимВидЗап = наимВидЗап;
     }
 
-    public String getРЎРµСЂРёСЏ() {
-        return СЃРµСЂРёСЏ;
+    public String getСерия() {
+        return серия;
     }
 
-    public void setРЎРµСЂРёСЏ(String СЃРµСЂРёСЏ) {
-        this.СЃРµСЂРёСЏ = СЃРµСЂРёСЏ;
+    public void setСерия(String серия) {
+        this.серия = серия;
     }
 
-    public String getРќРѕРјРµСЂ() {
-        return РЅРѕРјРµСЂ;
+    public String getНомер() {
+        return номер;
     }
 
-    public void setРќРѕРјРµСЂ(String РЅРѕРјРµСЂ) {
-        this.РЅРѕРјРµСЂ = РЅРѕРјРµСЂ;
+    public void setНомер(String номер) {
+        this.номер = номер;
     }
 
-    public String getР”Р°С‚Р°Р’С‹РґРЎРІРёРґ() {
-        return РґР°С‚Р°Р’С‹РґРЎРІРёРґ;
+    public String getДатаВыдСвид() {
+        return датаВыдСвид;
     }
 
-    public void setР”Р°С‚Р°Р’С‹РґРЎРІРёРґ(String РґР°С‚Р°Р’С‹РґРЎРІРёРґ) {
-        this.РґР°С‚Р°Р’С‹РґРЎРІРёРґ = РґР°С‚Р°Р’С‹РґРЎРІРёРґ;
+    public void setДатаВыдСвид(String датаВыдСвид) {
+        this.датаВыдСвид = датаВыдСвид;
     }
 
     public String getIncome() {
@@ -582,52 +584,52 @@ public class Attributes {
         this.outcome = outcome;
     }
 
-    public String getРРЅРґРµРєСЃ() {
-        return РёРЅРґРµРєСЃ;
+    public String getИндекс() {
+        return индекс;
     }
 
-    public void setРРЅРґРµРєСЃ(String РёРЅРґРµРєСЃ) {
-        this.РёРЅРґРµРєСЃ = РёРЅРґРµРєСЃ;
+    public void setИндекс(String индекс) {
+        this.индекс = индекс;
     }
 
-    public String getРљРѕРґР РµРіРёРѕРЅ() {
-        return РєРѕРґР РµРіРёРѕРЅ;
+    public String getКодРегион() {
+        return кодРегион;
     }
 
-    public void setРљРѕРґР РµРіРёРѕРЅ(String РєРѕРґР РµРіРёРѕРЅ) {
-        this.РєРѕРґР РµРіРёРѕРЅ = РєРѕРґР РµРіРёРѕРЅ;
+    public void setКодРегион(String кодРегион) {
+        this.кодРегион = кодРегион;
     }
 
-    public String getРљРѕРґРђРґСЂРљР»Р°РґСЂ() {
-        return РєРѕРґРђРґСЂРљР»Р°РґСЂ;
+    public String getКодАдрКладр() {
+        return кодАдрКладр;
     }
 
-    public void setРљРѕРґРђРґСЂРљР»Р°РґСЂ(String РєРѕРґРђРґСЂРљР»Р°РґСЂ) {
-        this.РєРѕРґРђРґСЂРљР»Р°РґСЂ = РєРѕРґРђРґСЂРљР»Р°РґСЂ;
+    public void setКодАдрКладр(String кодАдрКладр) {
+        this.кодАдрКладр = кодАдрКладр;
     }
 
-    public String getР”РѕРј() {
-        return РґРѕРј;
+    public String getДом() {
+        return дом;
     }
 
-    public void setР”РѕРј(String РґРѕРј) {
-        this.РґРѕРј = РґРѕРј;
+    public void setДом(String дом) {
+        this.дом = дом;
     }
 
-    public String getРљРѕСЂРїСѓСЃ() {
-        return РєРѕСЂРїСѓСЃ;
+    public String getКорпус() {
+        return корпус;
     }
 
-    public void setРљРѕСЂРїСѓСЃ(String РєРѕСЂРїСѓСЃ) {
-        this.РєРѕСЂРїСѓСЃ = РєРѕСЂРїСѓСЃ;
+    public void setКорпус(String корпус) {
+        this.корпус = корпус;
     }
 
-    public String getРљРІР°СЂС‚() {
-        return РєРІР°СЂС‚;
+    public String getКварт() {
+        return кварт;
     }
 
-    public void setРљРІР°СЂС‚(String РєРІР°СЂС‚) {
-        this.РєРІР°СЂС‚ = РєРІР°СЂС‚;
+    public void setКварт(String кварт) {
+        this.кварт = кварт;
     }
 
     public String getTax_id_1() {
@@ -782,35 +784,453 @@ public class Attributes {
         this.tax_system = tax_system;
     }
 
-    public String getРўРёРїР РµРіРёРѕРЅ() {
-        return С‚РёРїР РµРіРёРѕРЅ;
+    public String getТипРегион() {
+        return типРегион;
     }
 
-    public void setРўРёРїР РµРіРёРѕРЅ(String С‚РёРїР РµРіРёРѕРЅ) {
-        this.С‚РёРїР РµРіРёРѕРЅ = С‚РёРїР РµРіРёРѕРЅ;
+    public void setТипРегион(String типРегион) {
+        this.типРегион = типРегион;
     }
 
-    public String getРќР°РёРјР РµРіРёРѕРЅ() {
-        return РЅР°РёРјР РµРіРёРѕРЅ;
+    public String getНаимРегион() {
+        return наимРегион;
     }
 
-    public void setРќР°РёРјР РµРіРёРѕРЅ(String РЅР°РёРјР РµРіРёРѕРЅ) {
-        this.РЅР°РёРјР РµРіРёРѕРЅ = РЅР°РёРјР РµРіРёРѕРЅ;
+    public void setНаимРегион(String наимРегион) {
+        this.наимРегион = наимРегион;
     }
 
-    public String getРўРёРїРЈР»РёС†Р°() {
-        return С‚РёРїРЈР»РёС†Р°;
+    public String getТипУлица() {
+        return типУлица;
     }
 
-    public void setРўРёРїРЈР»РёС†Р°(String С‚РёРїРЈР»РёС†Р°) {
-        this.С‚РёРїРЈР»РёС†Р° = С‚РёРїРЈР»РёС†Р°;
+    public void setТипУлица(String типУлица) {
+        this.типУлица = типУлица;
     }
 
-    public String getРќР°РёРјРЈР»РёС†Р°() {
-        return РЅР°РёРјРЈР»РёС†Р°;
+    public String getНаимУлица() {
+        return наимУлица;
     }
 
-    public void setРќР°РёРјРЈР»РёС†Р°(String РЅР°РёРјРЈР»РёС†Р°) {
-        this.РЅР°РёРјРЈР»РёС†Р° = РЅР°РёРјРЈР»РёС†Р°;
+    public void setНаимУлица(String наимУлица) {
+        this.наимУлица = наимУлица;
+    }
+
+    @Override
+    public String toString() {
+        return "Attributes{" +
+                "датаВыг='" + датаВыг + '\'' +
+                ", zip_file='" + zip_file + '\'' +
+                ", xml_file='" + xml_file + '\'' +
+                ", оГРН='" + оГРН + '\'' +
+                ", датаОГРН='" + датаОГРН + '\'' +
+                ", кодСпОбрЮЛ='" + кодСпОбрЮЛ + '\'' +
+                ", наимСпОбрЮЛ='" + наимСпОбрЮЛ + '\'' +
+                ", гРН='" + гРН + '\'' +
+                ", датаЗаписи='" + датаЗаписи + '\'' +
+                ", кодНО='" + кодНО + '\'' +
+                ", наимНО='" + наимНО + '\'' +
+                ", адрРО='" + адрРО + '\'' +
+                ", иНН='" + иНН + '\'' +
+                ", кПП='" + кПП + '\'' +
+                ", датаПостУч='" + датаПостУч + '\'' +
+                ", регНомПФ='" + регНомПФ + '\'' +
+                ", датаРег='" + датаРег + '\'' +
+                ", кодПФ='" + кодПФ + '\'' +
+                ", наимПФ='" + наимПФ + '\'' +
+                ", датаВып='" + датаВып + '\'' +
+                ", спрОПФ='" + спрОПФ + '\'' +
+                ", кодОПФ='" + кодОПФ + '\'' +
+                ", полнНаимОПФ='" + полнНаимОПФ + '\'' +
+                ", регНомФСС='" + регНомФСС + '\'' +
+                ", кодФСС='" + кодФСС + '\'' +
+                ", наимФСС='" + наимФСС + '\'' +
+                ", наимВидКап='" + наимВидКап + '\'' +
+                ", сумКап='" + сумКап + '\'' +
+                ", фамилия='" + фамилия + '\'' +
+                ", имя='" + имя + '\'' +
+                ", отчество='" + отчество + '\'' +
+                ", иННФЛ='" + иННФЛ + '\'' +
+                ", видДолжн='" + видДолжн + '\'' +
+                ", наимВидДолжн='" + наимВидДолжн + '\'' +
+                ", наимДолжн='" + наимДолжн + '\'' +
+                ", наимЮЛПолн='" + наимЮЛПолн + '\'' +
+                ", наимЮЛСокр='" + наимЮЛСокр + '\'' +
+                ", номинСтоим='" + номинСтоим + '\'' +
+                ", кодОКВЭД='" + кодОКВЭД + '\'' +
+                ", наимОКВЭД='" + наимОКВЭД + '\'' +
+                ", прВерсОКВЭД='" + прВерсОКВЭД + '\'' +
+                ", номЛиц='" + номЛиц + '\'' +
+                ", датаЛиц='" + датаЛиц + '\'' +
+                ", датаНачЛиц='" + датаНачЛиц + '\'' +
+                ", датаОкончЛиц='" + датаОкончЛиц + '\'' +
+                ", идЗап='" + идЗап + '\'' +
+                ", датаЗап='" + датаЗап + '\'' +
+                ", кодСПВЗ='" + кодСПВЗ + '\'' +
+                ", наимВидЗап='" + наимВидЗап + '\'' +
+                ", серия='" + серия + '\'' +
+                ", номер='" + номер + '\'' +
+                ", датаВыдСвид='" + датаВыдСвид + '\'' +
+                ", income='" + income + '\'' +
+                ", outcome='" + outcome + '\'' +
+                ", индекс='" + индекс + '\'' +
+                ", кодРегион='" + кодРегион + '\'' +
+                ", кодАдрКладр='" + кодАдрКладр + '\'' +
+                ", дом='" + дом + '\'' +
+                ", корпус='" + корпус + '\'' +
+                ", кварт='" + кварт + '\'' +
+                ", tax_id_1='" + tax_id_1 + '\'' +
+                ", tax_id_2='" + tax_id_2 + '\'' +
+                ", tax_id_3='" + tax_id_3 + '\'' +
+                ", tax_id_5='" + tax_id_5 + '\'' +
+                ", n='" + n + '\'' +
+                ", inc_date='" + inc_date + '\'' +
+                ", cat='" + cat + '\'' +
+                ", from_inn='" + from_inn + '\'' +
+                ", term='" + term + '\'' +
+                ", accept_date='" + accept_date + '\'' +
+                ", end_date='" + end_date + '\'' +
+                ", form_id='" + form_id + '\'' +
+                ", type_id='" + type_id + '\'' +
+                ", s='" + s + '\'' +
+                ", s_type='" + s_type + '\'' +
+                ", violation='" + violation + '\'' +
+                ", misuse='" + misuse + '\'' +
+                ", y='" + y + '\'' +
+                ", tax_system='" + tax_system + '\'' +
+                ", типРегион='" + типРегион + '\'' +
+                ", наимРегион='" + наимРегион + '\'' +
+                ", типУлица='" + типУлица + '\'' +
+                ", наимУлица='" + наимУлица + '\'' +
+                '}';
+    }
+
+    @JsonIgnoreProperties
+    public class Fin{
+        public Y2014 y2014;
+        public Y2015 y2015;
+        public Y2016 y2016;
+        public Y2017 y2017;
+        public Y2018 y2018;
+        public Y2019 y2019;
+        public Y2020 y2020;
+        public Msp msp;
+        public ArrayList<Support> support;
+        public TaxSystems tax_systems;
+    }
+    @JsonIgnoreProperties
+    public class Msp{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Root{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СвЮЛ")
+        public СвЮЛ свЮЛ;
+        public Fin fin;
+    }
+    @JsonIgnoreProperties
+    public class Support{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class TaxSystems{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2014{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2015{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2016{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2017{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2018{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2019{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Y2020{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class АдресРФ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("Регион")
+        public Регион регион;
+        @JsonProperty("Улица")
+        public Улица улица;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+        @JsonProperty("ГРНДатаИспр")
+        public ГРНДатаИспр гРНДатаИспр;
+    }
+    @JsonIgnoreProperties
+    public class ВидЗап{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class ГРНДата{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class ГРНДатаИспр{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class ГРНДатаПерв{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class ДоляУстКап{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("РазмерДоли")
+        public РазмерДоли размерДоли;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class РазмерДоли{
+        @JsonProperty("Процент")
+        public String процент;
+    }
+    @JsonIgnoreProperties
+    public class Регион{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class СвАдресЮЛ{
+        @JsonProperty("АдресРФ")
+        public АдресРФ адресРФ;
+    }
+    @JsonIgnoreProperties
+    public class СвДолжн{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СведДолжнФЛ{
+        @JsonProperty("ГРНДатаПерв")
+        public ГРНДатаПерв гРНДатаПерв;
+        @JsonProperty("СвФЛ")
+        public СвФЛ свФЛ;
+        @JsonProperty("СвДолжн")
+        public СвДолжн свДолжн;
+    }
+    @JsonIgnoreProperties
+    public class СвЗапЕГРЮЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ВидЗап")
+        public ВидЗап видЗап;
+        @JsonProperty("СвРегОрг")
+        public СвРегОрг свРегОрг;
+        @JsonProperty("СведПредДок")
+        public Object сведПредДок;
+        @JsonProperty("СвСвид")
+        public СвСвид свСвид;
+    }
+    @JsonIgnoreProperties
+    public class СвЛицензия{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("НаимЛицВидДеят")
+        public String наимЛицВидДеят;
+        @JsonProperty("ЛицОргВыдЛиц")
+        public String лицОргВыдЛиц;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвНаимЮЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвНО{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class СвОбрЮЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СпОбрЮЛ")
+        public СпОбрЮЛ спОбрЮЛ;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвОКВЭД{
+        @JsonProperty("СвОКВЭДОсн")
+        public СвОКВЭДОсн свОКВЭДОсн;
+        @JsonProperty("СвОКВЭДДоп")
+        public ArrayList<СвОКВЭДДоп> свОКВЭДДоп;
+    }
+    @JsonIgnoreProperties
+    public class СвОКВЭДДоп{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвОКВЭДОсн{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвОргПФ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class СвОргФСС{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class СвРегОрг{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвРегПФ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СвОргПФ")
+        public СвОргПФ свОргПФ;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвРегФСС{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СвОргФСС")
+        public СвОргФСС свОргФСС;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвСвид{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class СвУстКап{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвУчетНО{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СвНО")
+        public СвНО свНО;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвУчредит{
+        @JsonProperty("УчрФЛ")
+        public УчрФЛ учрФЛ;
+    }
+    @JsonIgnoreProperties
+    public class СвФЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("ГРНДата")
+        public ГРНДата гРНДата;
+    }
+    @JsonIgnoreProperties
+    public class СвЮЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+        @JsonProperty("СвНаимЮЛ")
+        public СвНаимЮЛ свНаимЮЛ;
+        @JsonProperty("СвАдресЮЛ")
+        public СвАдресЮЛ свАдресЮЛ;
+        @JsonProperty("СвОбрЮЛ")
+        public СвОбрЮЛ свОбрЮЛ;
+        @JsonProperty("СвРегОрг")
+        public СвРегОрг свРегОрг;
+        @JsonProperty("СвУчетНО")
+        public СвУчетНО свУчетНО;
+        @JsonProperty("СвРегПФ")
+        public СвРегПФ свРегПФ;
+        @JsonProperty("СвРегФСС")
+        public СвРегФСС свРегФСС;
+        @JsonProperty("СвУстКап")
+        public СвУстКап свУстКап;
+        @JsonProperty("СведДолжнФЛ")
+        public ArrayList<СведДолжнФЛ> сведДолжнФЛ;
+        @JsonProperty("СвУчредит")
+        public СвУчредит свУчредит;
+        @JsonProperty("СвОКВЭД")
+        public СвОКВЭД свОКВЭД;
+        @JsonProperty("СвЛицензия")
+        public ArrayList<СвЛицензия> свЛицензия;
+        @JsonProperty("СвЗапЕГРЮЛ")
+        public ArrayList<СвЗапЕГРЮЛ> свЗапЕГРЮЛ;
+    }
+    @JsonIgnoreProperties
+    public class СпОбрЮЛ{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class Улица{
+        @JsonProperty("@attributes")
+        public Attributes attributes;
+    }
+    @JsonIgnoreProperties
+    public class УчрФЛ{
+        @JsonProperty("ГРНДатаПерв")
+        public ГРНДатаПерв гРНДатаПерв;
+        @JsonProperty("СвФЛ")
+        public СвФЛ свФЛ;
+        @JsonProperty("ДоляУстКап")
+        public ДоляУстКап доляУстКап;
     }
 }
