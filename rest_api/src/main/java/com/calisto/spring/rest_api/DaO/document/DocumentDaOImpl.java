@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.DaO.document;
 
-import com.calisto.spring.rest_api.entity.Document;
+import com.calisto.spring.rest_api.entity.document.Document;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;

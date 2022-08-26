@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.service.company;
 
-import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.company.Company;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.controller;
 
-import com.calisto.spring.rest_api.entity.Tender;
+import com.calisto.spring.rest_api.entity.company.Tender;
 import com.calisto.spring.rest_api.service.tender.TenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

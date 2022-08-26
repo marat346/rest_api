@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.service.employee;
 
 import com.calisto.spring.rest_api.DaO.employee.EmployeeDaO;
-import com.calisto.spring.rest_api.entity.Employee;
+import com.calisto.spring.rest_api.entity.people.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

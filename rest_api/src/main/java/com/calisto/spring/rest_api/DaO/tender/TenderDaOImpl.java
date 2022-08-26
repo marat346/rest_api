@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.DaO.tender;
 
-import com.calisto.spring.rest_api.entity.Tender;
+import com.calisto.spring.rest_api.entity.company.Tender;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;

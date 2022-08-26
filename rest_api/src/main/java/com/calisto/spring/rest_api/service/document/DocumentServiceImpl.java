@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.service.document;
 
 import com.calisto.spring.rest_api.DaO.document.DocumentDaO;
-import com.calisto.spring.rest_api.entity.Document;
+import com.calisto.spring.rest_api.entity.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

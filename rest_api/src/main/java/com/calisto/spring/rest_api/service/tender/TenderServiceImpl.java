@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.service.tender;
 
 import com.calisto.spring.rest_api.DaO.tender.TenderDaO;
-import com.calisto.spring.rest_api.entity.Tender;
+import com.calisto.spring.rest_api.entity.company.Tender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

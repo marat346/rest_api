@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.service.tender;
 
-import com.calisto.spring.rest_api.entity.Tender;
+import com.calisto.spring.rest_api.entity.company.Tender;
 
 import java.util.List;
 

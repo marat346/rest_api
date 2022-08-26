@@ -1,9 +1,7 @@
 package com.calisto.spring.rest_api.communication;
 
-import com.calisto.spring.rest_api.entity.Company;
-import com.calisto.spring.rest_api.entity.json.Attributes;
+import com.calisto.spring.rest_api.entity.company.Company;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
