@@ -1,9 +1,8 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
-import com.calisto.spring.rest_api.entity.document.OborudovanieDoc;
-import com.calisto.spring.rest_api.entity.document.TransportDoc;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Oborudovanie;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -30,8 +29,7 @@ public class GeneratorDocForm4 {
             PdfFont font = baseFont.getFont();
 
             // краткое название компании с ковычками
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем информацию о участнике, инн и номер торгов
             String topInfoCompanyEndTender =
@@ -39,8 +37,8 @@ public class GeneratorDocForm4 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "СВЕДЕНИЯ О МАТЕРИАЛЬНО-ТЕХНИЧЕСКИХ РЕСУРСАХ\n";
@@ -141,12 +139,12 @@ public class GeneratorDocForm4 {
 
             // реализуем механизм добавления техники в таблицу
 
-            List<TransportDoc> arrayListTransport = company.getTransportInfoDoc().get(0).getArrayListTransportDoc();
-            List<OborudovanieDoc> arrayListOborudovanie = company.getOborudovanieInfoDoc().get(0).getArrayListOborudovatieDoc();
+            List<Oborudovanie> arrayListTransport = company.getOborudovanieList();
+//            List<OborudovanieDoc> arrayListOborudovanie = company.getOborudovanieInfoDoc().get(0).getArrayListOborudovatieDoc();
 
             int i = 1;
             for (int a = 0; a < arrayListTransport.size(); a++) {
-                TransportDoc transportDoc = arrayListTransport.get(a);
+                Oborudovanie transportDoc = arrayListTransport.get(a);
 
                 // порядковый номер
                 cell = new Cell()
@@ -159,7 +157,7 @@ public class GeneratorDocForm4 {
 
                 // Наименование
                 cell = new Cell()
-                        .add(transportDoc.getVidTransporta())
+                        .add(transportDoc.getName())
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER)
@@ -169,9 +167,7 @@ public class GeneratorDocForm4 {
                 // Производитель, страна производства, марка, модель, основные тех
                 // характеристики
                 cell = new Cell()
-                        .add(transportDoc.getMadeInContry() + ", " +
-                                transportDoc.getNameModel() + ", " +
-                                transportDoc.getNameMark())
+                        .add(transportDoc.getModel())
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER)
@@ -188,8 +184,9 @@ public class GeneratorDocForm4 {
                 table.addCell(cell);
 
                 // % амортизации
+                // нужна ли амортизация неизвестно
                 cell = new Cell()
-                        .add(transportDoc.getProcentTransport())
+                        .add(" ")
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER)
@@ -198,7 +195,7 @@ public class GeneratorDocForm4 {
 
                 // Принадлежность (собственность, арендованный)
                 String statusArend = "собственность";
-                if (transportDoc.isStatusArendi()){
+                if (transportDoc.getStatus().equals("арендованный")){
                     statusArend = "арендованный";
                 }
 
@@ -233,90 +230,91 @@ public class GeneratorDocForm4 {
 
 
 
-            for (int a = 0; a < arrayListOborudovanie.size(); a++){
-                OborudovanieDoc oborudovanieDoc = arrayListOborudovanie.get(a);
-                // порядковый номер
-                cell = new Cell()
-                        .add("" + i + "\n")
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Наименование
-                cell = new Cell()
-                        .add(oborudovanieDoc.getNameVidOborudovania())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Производитель, старана производства, марка, модель, основные тех
-                // характеристики
-                cell = new Cell()
-                        .add(oborudovanieDoc.getMadeInContry() + ", " +
-                                oborudovanieDoc.getNameModel() + ", " +
-                                oborudovanieDoc.getNameOborudovanie())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Год выпуска
-                cell = new Cell()
-                        .add(sf.format(oborudovanieDoc.getData()))
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // % амортизации
-                cell = new Cell()
-                        .add(oborudovanieDoc.getProcentAmmortizacii())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Принадлежность (собственность, арендованный)
-                String statusArend = "собственность";
-                if (oborudovanieDoc.isStatusArenda()){
-                    statusArend = "арендованный";
-                }
-
-                cell = new Cell()
-                        .add(statusArend)
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Кол-во единиц
-                cell = new Cell()
-                        .add("1")
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // Примечание
-                // обычно взрывозащищённое или нет
-                cell = new Cell()
-                        .add(oborudovanieDoc.getPs())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-                i++;
-            }
+            // убираем пока отдельно добавление информации по оборудованию
+//            for (int a = 0; a < arrayListTransport.size(); a++){
+//                Oborudovanie oborudovanieDoc = arrayListTransport.get(a);
+//                // порядковый номер
+//                cell = new Cell()
+//                        .add("" + i + "\n")
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Наименование
+//                cell = new Cell()
+//                        .add(oborudovanieDoc.getNameVidOborudovania())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Производитель, старана производства, марка, модель, основные тех
+//                // характеристики
+//                cell = new Cell()
+//                        .add(oborudovanieDoc.getMadeInContry() + ", " +
+//                                oborudovanieDoc.getNameModel() + ", " +
+//                                oborudovanieDoc.getNameOborudovanie())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Год выпуска
+//                cell = new Cell()
+//                        .add(sf.format(oborudovanieDoc.getData()))
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // % амортизации
+//                cell = new Cell()
+//                        .add(oborudovanieDoc.getProcentAmmortizacii())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Принадлежность (собственность, арендованный)
+//                String statusArend = "собственность";
+//                if (oborudovanieDoc.isStatusArenda()){
+//                    statusArend = "арендованный";
+//                }
+//
+//                cell = new Cell()
+//                        .add(statusArend)
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Кол-во единиц
+//                cell = new Cell()
+//                        .add("1")
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // Примечание
+//                // обычно взрывозащищённое или нет
+//                cell = new Cell()
+//                        .add(oborudovanieDoc.getPs())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//                i++;
+//            }
 
 
             // добавляем печать и подпись

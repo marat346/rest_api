@@ -1,8 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
-import com.calisto.spring.rest_api.entity.document.DocumentPdfDateInfo;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.color.DeviceGray;
@@ -33,8 +32,7 @@ public class GeneratorDocForm9 {
             // добавляем прозрачный бордюр
             Border border = new GrooveBorder(new DeviceGray(10), 0);
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем полное название компании в шапку файла
             String topFullNameFileDocCompany = company.getFullNameFormCompany() + "\n" + "\"" +
@@ -64,8 +62,8 @@ public class GeneratorDocForm9 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "ПИСЬМО О ПОДАЧЕ ЗАЯВКИ\n";
@@ -97,8 +95,8 @@ public class GeneratorDocForm9 {
                     "Изучив Извещение и Документацию о закупке, размещенные на сайте ПАО" +
                             " \"НК\"Роснефть\" (при проведения закупки в интересах только" +
                             " Заказчиков, не подпадающих под действие Закона 233-ФЗ), №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() +
+                            tender.getNumber() + " " +
+                            tender.getName() +
                             ", и принимая установленные в них требования и условия закупки," +
                             " настоящим подаем заявку на участие в указанной процедуре " +
                             "закупки и сообщаем о себе следующие сведения: \n" +
@@ -107,7 +105,7 @@ public class GeneratorDocForm9 {
                             "расположенное по адресу " +
                             company.getAddressCompany() + "\n" +
                             "предлагает заключить Договор на " +
-                            tender.getNameTender() + "\n" +
+                            tender.getName() + "\n" +
                             "на условиях и в соответствии с Техническим и Коммерческим " +
                             "предложениями, являющимися неотъемлемыми приложениями к " +
                             "настоящему письму и составляющими вместе с настоящим " +
@@ -215,15 +213,17 @@ public class GeneratorDocForm9 {
             // достаём данные по акктедитации
             String numberAkkr = null;
             String dateAkr = null;
-            String numeCompanyAkkr = tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                    tender.getCompany().get(0).getSmallNameCompany() +"\"";
-            for (int i = 0; i < company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().size(); i++){
-                DocumentPdfDateInfo doc = company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().get(i);
-                if (doc.getNameInfoCom().equals(numeCompanyAkkr)){
-                    numberAkkr = doc.getNumberDoc();
-                    dateAkr = sf.format(doc.getEndDate());
-                }
-            }
+            String numeCompanyAkkr = "Название компании кто аккредитовал";
+//                    tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                    tender.getCompany().get(0).getSmallNameCompany() +"\"";
+            // далее идёт проверка есть ли аккредитация на данную компанию. и добавляются все необходимые для этого тендера данные
+//            for (int i = 0; i < company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().size(); i++){
+//                DocumentPdfDateInfo doc = company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().get(i);
+//                if (doc.getNameInfoCom().equals(numeCompanyAkkr)){
+//                    numberAkkr = doc.getNumberDoc();
+//                    dateAkr = sf.format(doc.getEndDate());
+//                }
+//            }
 
             // добавляем основной текст тела документа часть 2
             String bodyTextDoc2 =

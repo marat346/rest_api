@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.DaO.employee;
 
-import com.calisto.spring.rest_api.entity.people.Employee;
+import com.calisto.spring.rest_api.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;

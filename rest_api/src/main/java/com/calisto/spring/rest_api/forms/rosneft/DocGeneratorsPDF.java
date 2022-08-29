@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.SpisokSpravok;
 
 import java.util.Iterator;
@@ -29,13 +29,12 @@ public class DocGeneratorsPDF {
                                 addressDocPac + "\\Наличие людских ресурсов.pdf",
                                 "Гарантийное письмо.",
                                 dateDoc,
-                                company.getSmallNameFormCompany()+ " "
-                                        + company.getSmallNameCompany() + " " +
+                                 company.getSmallNameCompany() + " " +
                                         "гарантирует наличие свободных людских ресурсов не менее " +
-                                        company.getEmployeesCompany().get(0).getArrayListEmployee().size() + " " +
+                                        company.getEmployeeList().size() + " " +
                                         "человек готовых выполнить работы по закупке: №" +
-                                        tender.getNumberTender() + " " +
-                                        tender.getNameTender() + ".",
+                                        tender.getNumber() + " " +
+                                        tender.getName() + ".",
                                 numberDoc);
                     numberDoc++;
                         break;
@@ -45,10 +44,10 @@ public class DocGeneratorsPDF {
                                         "\\Не эксплуатируем объекты 1 и 2 класса опасности.pdf",
                                 "Информационное письмо.",
                                 dateDoc,
-                                "По запросу на предмет закупки: №"+ tender.getNumberTender() + " " +
-                                tender.getNameTender() +
+                                "По запросу на предмет закупки: №"+ tender.getNumber() + " " +
+                                tender.getName() +
                                 "." +
-                                " Сообщаем что, " + company.getSmallNameFormCompany() + " " +
+                                " Сообщаем что, " +
                                 company.getSmallNameCompany() +
                                 " " +
                                 "не относится к предприятию, эксплуатирующему опасные " +
@@ -62,7 +61,6 @@ public class DocGeneratorsPDF {
                                         "\\Справка об отсутствии судебных разбирательств.pdf",
                         "Отсутствие судебных разбирательств.",
                         dateDoc,
-                        company.getSmallNameFormCompany() + " " +
                                 company.getSmallNameCompany() + " " +
                                 "сообщает об отсутствии в течении 24 месяца до момента окончания срока" +
                                 " подачи заявок на участие в закупке и в течение срока проведения" +
@@ -81,13 +79,12 @@ public class DocGeneratorsPDF {
                                         "\\Согласие с договором.pdf",
                                 "Согласие с договором.",
                                 dateDoc,
-                                company.getSmallNameFormCompany() + " " +
                                 company.getSmallNameCompany() + " " +
                                 "согласны со всеми условиями договора, без возможности внесения каких-либо" +
                                         " изменений или дополнений в приложенный к документации проект" +
                                         " договора по закупке №" +
-                                        tender.getNumberTender() + " " +
-                                        tender.getNameTender() + ".",
+                                        tender.getNumber() + " " +
+                                        tender.getName() + ".",
                                 numberDoc
                                 );
                         numberDoc++;
@@ -99,12 +96,11 @@ public class DocGeneratorsPDF {
                                         "\\Согласие с выполнением работ.pdf",
                         "Согласие с выполнением работ.",
                         dateDoc,
-                                company.getSmallNameFormCompany() + " " +
                                         company.getSmallNameCompany() + " " +
                                         "согласны выполнить работы собственными силами в 100% объёме" +
                                         " по закупке №" +
-                                        tender.getNumberTender() + " " +
-                                        tender.getNameTender() + ".",
+                                        tender.getNumber() + " " +
+                                        tender.getName() + ".",
                         numberDoc);
                         numberDoc++;
                         break;
@@ -115,12 +111,11 @@ public class DocGeneratorsPDF {
                                         "\\Согласие со сроком оплаты.pdf",
                                 "Согласие со сроком оплаты.",
                         dateDoc,
-                                company.getSmallNameFormCompany() + " " +
                                         company.getSmallNameCompany() + " " +
                                         "согласны с установленными в закупочной документации" +
                                         " условиями оплаты работы по закупки №" +
-                                        tender.getNumberTender() + " " +
-                                        tender.getNameTender() + ".",
+                                        tender.getNumber() + " " +
+                                        tender.getName() + ".",
                         numberDoc);
                         numberDoc++;
                         break;
@@ -131,14 +126,14 @@ public class DocGeneratorsPDF {
                                         "\\Привлекаем собственный транспорт.pdf",
                                 "Информационное письмо о привлечение собственного транспорта.",
                                 dateDoc,
-                        "Настоящим участник закупки " + company.getSmallNameFormCompany() + " " +
+                        "Настоящим участник закупки " +
                                 company.getSmallNameCompany() + " " +
                                 "находящийся (зарегистрированный) по адресу: " +
                                 company.getAddressCompany() +
                                 ", сообщает, что планирует привлекать собственный транспорт для выполнения" +
                                 " работ по закупке №" +
-                                tender.getNumberTender() + " " +
-                                tender.getNameTender() + ".",
+                                tender.getNumber() + " " +
+                                tender.getName() + ".",
                         numberDoc);
                         numberDoc++;
                         break;
@@ -149,7 +144,7 @@ public class DocGeneratorsPDF {
                                         "\\Гарантийное письмо о наличии средств защиты изолирующего типа.pdf",
                                 "Гарантийное письмо о наличии средств защиты изолирующего типа.",
                                 dateDoc,
-                        "Настоящим участник закупки " + company.getSmallNameFormCompany() + " " +
+                        "Настоящим участник закупки " +
                                 company.getSmallNameCompany() + " " +
                                 "находящийся (зарегистрированный) по адресу: " +
                                 company.getAddressCompany() +
@@ -167,13 +162,13 @@ public class DocGeneratorsPDF {
                                         "\\Согласие идти в субподряд.pdf",
                                 "Согласие идти в субподряд.",
                                 dateDoc,
-                        "Настоящим сообщаем, что компания " + company.getSmallNameFormCompany() + " " +
+                        "Настоящим сообщаем, что компания " +
                                 company.getSmallNameCompany() + " " +
                                 "осведомлена о своём привлечении в качестве субподрядной организации " +
                                 "НАЗВАНИЕ ОРГАНИЗАЦИИ ГЕНЧИК" +
                                 " по закупочной процедуре №" +
-                                tender.getNumberTender() +
-                                tender.getNameTender() + " " +
+                                tender.getNumber() +
+                                tender.getName() + " " +
                                 "и согласна принять обязательства в соответствии с техническим заданием" +
                                 " по выделяемому объёму, сроку его выполнения, по видам работ: " +
                                 "ОСНОВНЫЕ ВИДЫ РАБОТ.",numberDoc);
@@ -186,14 +181,13 @@ public class DocGeneratorsPDF {
                                         "\\Согласие на проведение добровольного технического аудита.pdf",
                                 "Согласие на проведение добровольного технического аудита.",
                                 dateDoc,
-                                company.getSmallNameFormCompany() + " " +
                                         company.getSmallNameCompany() + " " +
                                         "даёт согласие на проведение добровольного технического аудита " +
                                         "производственных мощностей и документации, " +
                                         "подтверждающей соответствие технического задания, согласно " +
                                         "прилагаемой программы по закупке: №" +
-                                        tender.getNumberTender() + " " +
-                                        tender.getNameTender() +
+                                        tender.getNumber() + " " +
+                                        tender.getName() +
                                         " после признания победителем.",numberDoc);
                         numberDoc++;
                         break;
@@ -205,14 +199,13 @@ public class DocGeneratorsPDF {
                                 "Согласие на выполнение работ в соответствии с техническим заданием.",
                                 dateDoc,
                         "Настоящим сообщаем, что компания " +
-                                company.getSmallNameFormCompany() + " " +
                                 company.getSmallNameCompany() + " " +
                                 "даёт согласие на выполнение работ в соответствии с техническим заданием " +
                                 ", локальными сметным ресурсным расчётом и разделительным протоколом на поставку" +
                                 " материалов, без возможности внесения каких-либо изменений или дополнений в " +
                                 "приложенных к документации проект договора по закупочной процедуре №" +
-                                tender.getNumberTender() + " " +
-                                tender.getNameTender() + ".", numberDoc);
+                                tender.getNumber() + " " +
+                                tender.getName() + ".", numberDoc);
                         numberDoc++;
                         break;
 
@@ -223,13 +216,12 @@ public class DocGeneratorsPDF {
                                 "Согласие на изменение объёма.",
                                 dateDoc,
                         "Настоящим сообщаем, что компания " +
-                                company.getSmallNameFormCompany() + " " +
                                 company.getSmallNameCompany() + " " +
                                 "даёт согласие на включение в договор условия о праве Генерального подрядчика" +
                                 " изменить объём опциона, без изменения остальных согласованных условий " +
                                 "по закупочной процедуре: №" +
-                                tender.getNumberTender() + " " +
-                                tender.getNameTender() + ".", numberDoc);
+                                tender.getNumber() + " " +
+                                tender.getName() + ".", numberDoc);
                         numberDoc++;
                         break;
 

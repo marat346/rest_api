@@ -1,8 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
-import com.calisto.spring.rest_api.entity.document.DocumentPdfDateInfo;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -27,8 +26,7 @@ public class GeneratorDocForm1a {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем полное название компании в шапку файла
             String topFullNameFileDocCompany = company.getFullNameFormCompany() + "\n" + "\"" +
@@ -58,8 +56,8 @@ public class GeneratorDocForm1a {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "СВЕДЕНИЯ ОБ УЧАСТНИКЕ ЗАКУПКИ\n";
@@ -122,9 +120,9 @@ public class GeneratorDocForm1a {
             // до следующей таблицы по годовым оборотам организации
             String bodyTextDoc2 =
                     "3. Руководитель организации: " +
-                            company.getSupervisorCompany().get(0).getPositionCom()  + ".\n" +
+                            company.getEmployeeList().get(0).getPositionCom() + ".\n" +
                     "4. Главный бухгалтер: " +
-                            company.getSupervisorCompany().get(0).giveFullName()  + ".\n" +
+                            company.getEmployeeList().get(0).getPositionCom()  + ".\n" +
                     "5. Дата, место и орган регистрации, № свидетельства: " +
                             company.getDateRegistrationNumberGovDoc() + " №" +
                             company.getRegistrationNumberCompany() + ".\n" +
@@ -149,7 +147,7 @@ public class GeneratorDocForm1a {
                             websiteStatus(company)
                              + "\n" +
                     "8. Уставный фонд (капитал): " +
-                            company.getBasicDocCompany().get(0).getSummCompany() + "\n" +
+                            company.getSumm() + "\n" +
                     "9. Информация о собственниках компании (в соответствии с Формой 2). \n" +
                     "10. Банковские реквизиты:\n" +
                     "         р/с " +
@@ -205,53 +203,30 @@ public class GeneratorDocForm1a {
             // тут надо сделать в идеале цикл с добавлением информации из бухгалтерских данных
             cell1 = new Cell()
                     .add((String.format("%.2f",
-                            (company.
-                                    getEconomicCompanyDoc().get(0).
-                                    getEconomicDocPdfListBuh()
-                                            .get(2)
-                                                    .getInfoSumm() * 1.2))) + "\n")
+                            (company.getBuhdocumentList().get(0).getOborotiDate() * 1.2))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
                     .add((String.format("%.2f",
-                                    (company.
-                                            getEconomicCompanyDoc().get(0).
-                                            getEconomicDocPdfListBuh()
-                                            .get(1)
-                                            .getInfoSumm() * 1.2))) + "\n")
+                                    (company.getBuhdocumentList().get(1).getOborotiDate() * 1.2))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
                     .add((String.format("%.2f",
-                                    (company.
-                                            getEconomicCompanyDoc().get(0).
-                                            getEconomicDocPdfListBuh()
-                                            .get(0)
-                                            .getInfoSumm() * 1.2))) + "\n")
+                                    (company.getBuhdocumentList().get(2).getOborotiDate() * 1.2))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
                     .add(
-                            (String.format("%.2f",((company.getEconomicCompanyDoc().get(0).
-                                    getEconomicDocPdfListBuh()
-                                    .get(2)
-                                    .getInfoSumm() * 1.2) +
-                                    (company.
-                                            getEconomicCompanyDoc().get(0).
-                                            getEconomicDocPdfListBuh()
-                                            .get(1)
-                                            .getInfoSumm() * 1.2)+
-                                    (company.
-                                            getEconomicCompanyDoc().get(0).
-                                            getEconomicDocPdfListBuh()
-                                            .get(0)
-                                            .getInfoSumm() * 1.2))/3)) + "\n"
+                            (String.format("%.2f",((company.getBuhdocumentList().get(0).getOborotiDate() * 1.2) +
+                                    (company.getBuhdocumentList().get(1).getOborotiDate() * 1.2)+
+                                    (company.getBuhdocumentList().get(2).getOborotiDate() * 1.2))/3)) + "\n"
                     )
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
@@ -265,52 +240,28 @@ public class GeneratorDocForm1a {
 
             // тут тоже делаем цикл полученные из бухгалтерии данных
             cell1 = new Cell()
-                    .add((String.format("%.2f",(company.
-                            getEconomicCompanyDoc().get(0).
-                            getEconomicDocPdfListBuh()
-                            .get(2)
-                            .getInfoSumm()))) + "\n")
+                    .add((String.format("%.2f",(company.getBuhdocumentList().get(0).getOborotiDate()))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
-                    .add((String.format("%.2f",(company.
-                            getEconomicCompanyDoc().get(0).
-                            getEconomicDocPdfListBuh()
-                            .get(1)
-                            .getInfoSumm()))) + "\n")
+                    .add((String.format("%.2f",(company.getBuhdocumentList().get(1).getOborotiDate()))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
-                    .add((String.format("%.2f",(company.
-                            getEconomicCompanyDoc().get(0).
-                            getEconomicDocPdfListBuh()
-                            .get(0)
-                            .getInfoSumm()))) + "\n")
+                    .add((String.format("%.2f",(company.getBuhdocumentList().get(2).getOborotiDate()))) + "\n")
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table1.addCell(cell1);
 
             cell1 = new Cell()
                     .add((String.format("%.2f",(
-                            (company.
-                                    getEconomicCompanyDoc().get(0).
-                                    getEconomicDocPdfListBuh()
-                                    .get(2)
-                                    .getInfoSumm() +
-                                    company.
-                                            getEconomicCompanyDoc().get(0).
-                                            getEconomicDocPdfListBuh()
-                                            .get(1)
-                                            .getInfoSumm() +
-                            company.
-                                    getEconomicCompanyDoc().get(0).
-                                    getEconomicDocPdfListBuh()
-                                    .get(0)
-                                    .getInfoSumm()))/3)) + "\n"
+                            (company.getBuhdocumentList().get(0).getOborotiDate() +
+                                    company.getBuhdocumentList().get(1).getOborotiDate() +
+                                    company.getBuhdocumentList().get(2).getOborotiDate()))/3)) + "\n"
                     )
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
@@ -325,7 +276,7 @@ public class GeneratorDocForm1a {
                             fullSizeNameCompany + " " +
                     "в текущем году " +
                             // добавляем количество сотрудников
-                    company.getEmployeesCompany().get(0).getArrayListEmployee().size() + " " +
+                    company.getEmployeeList().size() + " " +
                     "человек. \n" +
                     "13. Сообщаем, что " +
                     fullSizeNameCompany + " " +
@@ -350,7 +301,7 @@ public class GeneratorDocForm1a {
                             " в соответствии с " +
                             "данными бухгалтерской отчетности за последний отчетный периода составляет " +
                             // надо реализовать получение данных из бухгалтерии
-                            company.getEconomicCompanyDoc().get(0).getSummActivCom() +
+                            company.getAktivSumm() +
                             " тыс.рублей. " +
                             fullSizeNameCompany + " " +
                             " в соответствии" +
@@ -446,7 +397,7 @@ public class GeneratorDocForm1a {
                             // или какие виды работ предоставляете
                             // по умолчанию основной вид деятельности (но этот вопрос надо как то решить)
                             // добавили гетер который возвращает значение и из класса тендер
-                            tender.getNameVidRabot() +
+                            tender.getName() +
                             "\n" +
                             "18. Сообщаем, что " +
                             // выбираем в составе какой квалификационной части
@@ -463,7 +414,7 @@ public class GeneratorDocForm1a {
                             " (раздел 2 Блока 9 настоящего документа).\n" +
                             "19. Сообщаем, что для оперативного уведомления по вопросам организационного" +
                             " характера и взаимодействия с ПАО «НК «Роснефть» нами уполномочен: " +
-                            company.getSupervisorCompany().get(0).givePositionEndFullName()  + " " +
+                            company.getEmployeeList().get(0).giveFullName() + " " +
                             company.getTelephoneCompany() + ".\n" +
                             "20. Филиалы " +
                             fullSizeNameCompany +
@@ -571,7 +522,7 @@ public class GeneratorDocForm1a {
                             "− о несоответствии их требованиям в рамках должной осмотрительности, установленным в " +
                             "Блоке 10 документации о закупке " +
                             // добавляем название тендера (без номера)
-                            tender.getNameTender() +
+                            tender.getName() +
                             ";\n" +
                             "− о не приостановлении их деятельности; \n" +
                             "− об их ликвидации;\n" +
@@ -604,7 +555,7 @@ public class GeneratorDocForm1a {
             table3.addCell(cell3);
 
             cell3 = new Cell()
-                    .add(tender.getNameVidRabot())
+                    .add(tender.getName())
                     .setFont(font)
                     .setTextAlignment(TextAlignment.CENTER);
             table3.addCell(cell3);
@@ -770,139 +721,144 @@ public class GeneratorDocForm1a {
 
         String numberAkkr = null;
         String date = null;
-        String numeCompanyAkkr = tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                tender.getCompany().get(0).getSmallNameCompany() +"\"";
-        for (int i = 0; i < company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().size(); i++){
-            DocumentPdfDateInfo doc = company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().get(i);
-            if (doc.getNameInfoCom().equals(numeCompanyAkkr)){
-                numberAkkr = doc.getNumberDoc();
-                date = sf.format(doc.getEndDate());
-            }
-        }
+        String numeCompanyAkkr = "ЗАКАЗЧИК";
+        // необходимо реализовать вызов данных по инн.
+//        tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                tender.getCompany().get(0).getSmallNameCompany() +"\"";
+//        for (int i = 0; i < company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().size(); i++){
+//            DocumentPdfDateInfo doc = company.getAkkredDocsCompany().get(0).getDocumentPdfDateInfoList().get(i);
+//            if (doc.getNameInfoCom().equals(numeCompanyAkkr)){
+//                numberAkkr = doc.getNumberDoc();
+//                date = sf.format(doc.getEndDate());
+//            }
+//        }
 
-        switch (company.getAkkreditStatus()){
-            case 0:
-                result = "на дату подачи заявки не имеет действующей аккредитации " +
-                    "или подтверждения о соответствии требования в рамках должной " +
-                    "осмотрительности в " +
-                        tender.getCompany().get(0).getSmallNameFormCompany() + " " +
-                        "\"" + tender.getCompany().get(0).getSmallNameCompany() + "\" " +
-                    "и подаёт документы для проверки на соответствие данным требованиям в " +
-                    "составе настоящей заявки на закупку.";
-                break;
-            case 1:
-                result = "подавало документы в " +
-                        tender.getCompany().get(0).getSmallNameFormCompany() + " " +
-                        "\"" + tender.getCompany().get(0).getSmallNameCompany() + "\" " +
-                        "для проверки на соответствие требования в рамках" +
-                        " должной осмотрительности " +
-                        // необходимо создать генерацию пакета документов для прохождения аккредитации (ДО)
-                        "!!!РЕКВИЗИТЫ письма с документами для проверки!!!.";
-                break;
-            case 2:
-                result = "на дату подачи заявки соответствует требования в рамках" +
-                        " должной осмотрительности, что подтверждается №" +
-                        numberAkkr +
-                        " от " +
-                        date +
-                        " года" +
-                        " в том числе: \n" +
-                        "- с даты подтверждения соответствия требования в рамках должной" +
-                        " осмотрительности в сведения, ранее поданные для проверки на " +
-                        "соответствие данным требованиям " +
-
-                        // далее проверяем были ли внесены изменения (по умолчанию не были)
-                        "не были внесены изменения. \n" +
-                        "- деятельность " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-
-                        // далее проверяем были ли приостановлена деятельность
-                        // смысл этого я не понимаю но всётки же
-                        // по умолчанию не приостановлена
-                        "не приостановлена " +
-                        "в порядке установленном Кодексом РФ об административных правонарушениях;\n" +
-                        "- в отношении " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        // далее проверяем идут ли процедуры банкротства
-                        // смысл этого я опять не понимаю
-                        // по умолчанию никаких проблем у нас нету
-                        "не проводится ликвидация, не было получено решение арбитражного суда " +
-                        "о признании " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        "несостоятельным (банкротом) и об открытии конкурсного производства; \n" +
-                        "- у руководителя, членов коллегиального исполнительного органа или " +
-                        "главного бухгалтера " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        // далее идёт выборка если или нету судимости у директор, или других
-                        // руководителей и главного бухгалтера судимости
-                        // по умолчанию поставим нету !НО! надо обязательно сделать эту выборку
-                        "отсутствует судимость за преступления в сфере экономики, " +
-                        "а так же в отношении указанных лиц " +
-                        "не применяется " +
-                        "наказание в виде лишения права занимать определённые должности " +
-                        "или заниматься определенной деятельностью, " +
-                        "которые связаны с поставкой товара, выполнением работы, оказанием услуги, " +
-                        "являющихся предметом закупки, и " +
-                        "отсутствует " +
-                        "административное наказание в виде дисквалификации; \n" +
-
-                        "− у руководителя, членов коллегиального исполнительного органа, лица, " +
-                        "исполняющего функции единоличного исполнительного органа, или главного " +
-                        "бухгалтера " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        // далее так же выбираем если или нет судимости
-                        // по умолчанию нету
-                        "отсутствует судимость" +
-                        " за преступления в " +
-                        "сфере экономики и (или) преступления, предусмотренные статьями " +
-                        "289, 290, 291, 291.1 Уголовного кодекса РФ, а также в отношении " +
-                        "указанных физических лиц " +
-                        "не применяются " +
-                        "наказания в виде лишения права занимать определенные должности или " +
-                        "заниматься определенной деятельностью, которые связаны с поставкой " +
-                        "товара, выполнением работы, оказанием услуги, являющихся предметом " +
-                        "закупки, и " +
-                        "отсутствуют" +
-                        " административные наказания в виде дисквалификации." +
-                        "- " +
-                        // тут отмечаем есть ли или нету судебных тяжб с заказчиком
-                        // по умолчанию нету
-                        "отсутствуют " +
-                        "факты привлечения " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        "в течение последних 24 месяцев, предшествующих дате подачи заявки, " +
-                        "к административной ответственности за совершение административного " +
-                        "правонарушения, предусмотренного статьей 19.28 Кодекса РФ об " +
-                        "административных правонарушениях.\n" +
-                        "- в реестрах недобросовестных поставщиков, предусмотренных Федеральным" +
-                        " законом от 05.04.2013 № 44-ФЗ «О контрактной системе в сфере закупок " +
-                        "товаров, работ, услуг для обеспечения государственных и муниципальных нужд» " +
-                        "и Федеральным законом от 18.07.2011 № 223-ФЗ «О закупках товаров, работ, " +
-                        "услуг отдельными видами юридических лиц», " +
-
-                        // выбираем есть ли о нас информация как о недобросовесном поставщике
-                        // по умолначию нет
-                        "отсутствуют " +
-                        "сведения о " +
-                        company.getSmallNameFormCompany() + " " +
-                        "\"" +
-                        company.getSmallNameCompany() +"\"" + " " +
-                        ", либо о любом из лиц, входящем в " +
-                        "состав коллективного Участника закупки (если применимо).";
-                        break;
-        }
+        // необходимо прописать проверку списка аккредитаций на соответствие инн и названию компании, так же
+        // на проверку вхождения в группу компаний
+//
+//        switch (company.getAkkreditList()){
+//            case 0:
+//                result = "на дату подачи заявки не имеет действующей аккредитации " +
+//                    "или подтверждения о соответствии требования в рамках должной " +
+//                    "осмотрительности в " +
+//                        tender.getCompany().get(0).getSmallNameFormCompany() + " " +
+//                        "\"" + tender.getCompany().get(0).getSmallNameCompany() + "\" " +
+//                    "и подаёт документы для проверки на соответствие данным требованиям в " +
+//                    "составе настоящей заявки на закупку.";
+//                break;
+//            case 1:
+//                result = "подавало документы в " +
+//                        tender.getCompany().get(0).getSmallNameFormCompany() + " " +
+//                        "\"" + tender.getCompany().get(0).getSmallNameCompany() + "\" " +
+//                        "для проверки на соответствие требования в рамках" +
+//                        " должной осмотрительности " +
+//                        // необходимо создать генерацию пакета документов для прохождения аккредитации (ДО)
+//                        "!!!РЕКВИЗИТЫ письма с документами для проверки!!!.";
+//                break;
+//            case 2:
+//                result = "на дату подачи заявки соответствует требования в рамках" +
+//                        " должной осмотрительности, что подтверждается №" +
+//                        numberAkkr +
+//                        " от " +
+//                        date +
+//                        " года" +
+//                        " в том числе: \n" +
+//                        "- с даты подтверждения соответствия требования в рамках должной" +
+//                        " осмотрительности в сведения, ранее поданные для проверки на " +
+//                        "соответствие данным требованиям " +
+//
+//                        // далее проверяем были ли внесены изменения (по умолчанию не были)
+//                        "не были внесены изменения. \n" +
+//                        "- деятельность " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//
+//                        // далее проверяем были ли приостановлена деятельность
+//                        // смысл этого я не понимаю но всётки же
+//                        // по умолчанию не приостановлена
+//                        "не приостановлена " +
+//                        "в порядке установленном Кодексом РФ об административных правонарушениях;\n" +
+//                        "- в отношении " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        // далее проверяем идут ли процедуры банкротства
+//                        // смысл этого я опять не понимаю
+//                        // по умолчанию никаких проблем у нас нету
+//                        "не проводится ликвидация, не было получено решение арбитражного суда " +
+//                        "о признании " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        "несостоятельным (банкротом) и об открытии конкурсного производства; \n" +
+//                        "- у руководителя, членов коллегиального исполнительного органа или " +
+//                        "главного бухгалтера " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        // далее идёт выборка если или нету судимости у директор, или других
+//                        // руководителей и главного бухгалтера судимости
+//                        // по умолчанию поставим нету !НО! надо обязательно сделать эту выборку
+//                        "отсутствует судимость за преступления в сфере экономики, " +
+//                        "а так же в отношении указанных лиц " +
+//                        "не применяется " +
+//                        "наказание в виде лишения права занимать определённые должности " +
+//                        "или заниматься определенной деятельностью, " +
+//                        "которые связаны с поставкой товара, выполнением работы, оказанием услуги, " +
+//                        "являющихся предметом закупки, и " +
+//                        "отсутствует " +
+//                        "административное наказание в виде дисквалификации; \n" +
+//
+//                        "− у руководителя, членов коллегиального исполнительного органа, лица, " +
+//                        "исполняющего функции единоличного исполнительного органа, или главного " +
+//                        "бухгалтера " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        // далее так же выбираем если или нет судимости
+//                        // по умолчанию нету
+//                        "отсутствует судимость" +
+//                        " за преступления в " +
+//                        "сфере экономики и (или) преступления, предусмотренные статьями " +
+//                        "289, 290, 291, 291.1 Уголовного кодекса РФ, а также в отношении " +
+//                        "указанных физических лиц " +
+//                        "не применяются " +
+//                        "наказания в виде лишения права занимать определенные должности или " +
+//                        "заниматься определенной деятельностью, которые связаны с поставкой " +
+//                        "товара, выполнением работы, оказанием услуги, являющихся предметом " +
+//                        "закупки, и " +
+//                        "отсутствуют" +
+//                        " административные наказания в виде дисквалификации." +
+//                        "- " +
+//                        // тут отмечаем есть ли или нету судебных тяжб с заказчиком
+//                        // по умолчанию нету
+//                        "отсутствуют " +
+//                        "факты привлечения " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        "в течение последних 24 месяцев, предшествующих дате подачи заявки, " +
+//                        "к административной ответственности за совершение административного " +
+//                        "правонарушения, предусмотренного статьей 19.28 Кодекса РФ об " +
+//                        "административных правонарушениях.\n" +
+//                        "- в реестрах недобросовестных поставщиков, предусмотренных Федеральным" +
+//                        " законом от 05.04.2013 № 44-ФЗ «О контрактной системе в сфере закупок " +
+//                        "товаров, работ, услуг для обеспечения государственных и муниципальных нужд» " +
+//                        "и Федеральным законом от 18.07.2011 № 223-ФЗ «О закупках товаров, работ, " +
+//                        "услуг отдельными видами юридических лиц», " +
+//
+//                        // выбираем есть ли о нас информация как о недобросовесном поставщике
+//                        // по умолначию нет
+//                        "отсутствуют " +
+//                        "сведения о " +
+//                        company.getSmallNameFormCompany() + " " +
+//                        "\"" +
+//                        company.getSmallNameCompany() +"\"" + " " +
+//                        ", либо о любом из лиц, входящем в " +
+//                        "состав коллективного Участника закупки (если применимо).";
+//                        break;
+//        }
 
         return result;
     }
@@ -911,14 +867,14 @@ public class GeneratorDocForm1a {
     // реализация метода для определения статуса по СМП
     private String smpStatusCompany(Company company) {
         String result = null;
-        switch (company.getSmpStatus()){
+        switch (company.getSmpstatus()){
             case 0:
                 result = "является субъектом малого предпринимательства.";
                 break;
             case 1:
                 result = "является субъектом среднего предпринимательства.";
                 break;
-            case 2:
+            default:
                 result = "не является субъектом малого или среднего предпринимательства.";
                 break;
         }

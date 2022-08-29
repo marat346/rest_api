@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -28,8 +28,7 @@ public class GeneratorDocForm11 {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany =company.getSmallNameCompany();
 
             // добавляем информацию о участнике, инн и номер торгов
             String topInfoCompanyEndTender =
@@ -37,8 +36,8 @@ public class GeneratorDocForm11 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // создаём таблицу с расписанием плана выполнения работ коллективного Участника закупки
             Table table = new Table(7);

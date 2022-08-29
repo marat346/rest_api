@@ -1,9 +1,8 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Department;
-import com.calisto.spring.rest_api.entity.company.Tender;
-import com.calisto.spring.rest_api.entity.people.Employee;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Employee;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -29,8 +28,7 @@ public class GeneratorDocForm5 {
             PdfFont font = baseFont.getFont();
 
             // краткое название компании с ковычками
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany =  company.getSmallNameCompany();
 
             // добавляем информацию о участнике, инн и номер торгов
             String topInfoCompanyEndTender =
@@ -38,8 +36,8 @@ public class GeneratorDocForm5 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "СВЕДЕНИЯ О КАДРОВЫХ РЕСУРСАХ\n";
@@ -107,41 +105,33 @@ public class GeneratorDocForm5 {
                 table.addCell(cell);
             }
 
+            // необходимо реализовать цыкл и сборку данных по должностям. конкретно. можно попробывать всех работников
             // здесь надо реализовать выдачу всех данных по кадрам
-            int i = 1;
-            for (int num = 0; num<company.getDepartmentsCompany().get(0).getArrayListDepartments().size();num++){
-                Department department = company.getDepartmentsCompany().get(0).getArrayListDepartments().get(num);
-
-                // добавляем порядковый номер в таблице
-                cell = new Cell()
-                        .add(i +"")
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
-                // добавляем название депортамента/отдела
-                cell = new Cell()
-                        .add(department.getName())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                table.addCell(cell);
-
+//            int i = 1;
+//            for (int num = 0; num<company.getDepartmentsCompany().get(0).getArrayListDepartments().size();num++){
+//                Department department = company.getDepartmentsCompany().get(0).getArrayListDepartments().get(num);
+//
+//                // добавляем порядковый номер в таблице
+//                cell = new Cell()
+//                        .add(i +"")
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
+//                // добавляем название депортамента/отдела
+//                cell = new Cell()
+//                        .add(department.getName())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER)
+//                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
+//                table.addCell(cell);
+//
                 // добавляем кол-во людей
-                int countEmpl = 0;
-
-                for (int c = 0; c < company.getEmployeesCompany().get(0).getArrayListEmployee().size();c++){
-                    Employee employee = company.getEmployeesCompany().get(0).getArrayListEmployee().get(c);
-//                    if (employee.getDepartment().equals(department)) {
-//                        countEmpl++;
-//                    }
-//                    else {
-
-//                    }
-                }
+                int countEmpl = company.getEmployeeList().size();
+//
 
                 countSummEmpl = countSummEmpl+countEmpl;
 
@@ -155,7 +145,7 @@ public class GeneratorDocForm5 {
 
                 // добавляем место нахождение отдела
                 cell = new Cell()
-                        .add(department.getAddressDepartment())
+                        .add(company.getAddressCompany())
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER)
@@ -171,7 +161,7 @@ public class GeneratorDocForm5 {
                         .setTextAlignment(TextAlignment.CENTER)
                         .setVerticalAlignment(VerticalAlignment.MIDDLE);
                 table.addCell(cell);
-            }
+
 
                 cell = new Cell()
                         .add("/")

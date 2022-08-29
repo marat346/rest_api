@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.color.DeviceGray;
@@ -31,8 +31,7 @@ public class GeneratorDocForm8 {
             Border border = new GrooveBorder(new DeviceGray(10), 0);
 
             // краткое название компании с ковычками
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем информацию о участнике, инн и номер торгов
             String topInfoCompanyEndTender =
@@ -40,8 +39,8 @@ public class GeneratorDocForm8 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "ТЕХНИЧЕСКОЕ ПРЕДЛОЖЕНИЕ\n";
@@ -77,8 +76,8 @@ public class GeneratorDocForm8 {
                             "(при проведении закупки в интересах Заказчиков, не подпадающих под действие " +
                             "Закона 223-ФЗ), №" +
                             // добавляем номер и название закупки
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() +
+                            tender.getNumber() + " " +
+                            tender.getName() +
                             ", " +
                             "и принимая установленные в них требования и условия закупки,\n" +
                             company.getFullNameFormCompany() + " " +

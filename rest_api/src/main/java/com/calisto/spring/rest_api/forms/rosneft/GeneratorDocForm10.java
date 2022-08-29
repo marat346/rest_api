@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -28,8 +28,7 @@ public class GeneratorDocForm10 {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем полное название компании в шапку файла
             String topFullNameFileDocCompany = company.getFullNameFormCompany() + "\n" + "\"" +
@@ -59,8 +58,8 @@ public class GeneratorDocForm10 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ\n";
@@ -91,7 +90,7 @@ public class GeneratorDocForm10 {
             createTable(table, "1.",8);
 
             // наименование и содержание этапа работ
-            createTable(table,tender.getNameTender(),8);
+            createTable(table,tender.getName(),8);
 
             // Ед. измерения объёма работ
             createTable(table,"шт",8);

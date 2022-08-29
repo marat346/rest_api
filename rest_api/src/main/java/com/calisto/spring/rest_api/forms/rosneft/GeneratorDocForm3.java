@@ -1,8 +1,9 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
-import com.calisto.spring.rest_api.entity.document.DocumentPdfContract;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Contract;
+import com.calisto.spring.rest_api.entity.DocumentPdf;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -28,8 +29,7 @@ public class GeneratorDocForm3 {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем информацию о участнике, инн и номер торгов
             String topInfoCompanyEndTender =
@@ -37,8 +37,8 @@ public class GeneratorDocForm3 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // название документа
             String docName =
@@ -48,7 +48,7 @@ public class GeneratorDocForm3 {
             String bodyTextDoc1 =
                     "При этом под анологичными договорами понимаются договоры на " +
                             "выполнение " +
-                            tender.getNameTender() + ".\n";
+                            tender.getName() + ".\n";
 
             // таблица со списком договором, по сути дела огромный документ.
             // самый большой
@@ -133,12 +133,12 @@ public class GeneratorDocForm3 {
             bigTable.addCell(cell);
 
             // реализуем алгоритм вывода информации по договорам
-            int countContact = company.getDogovoraCompanyPdf().get(0).getDogovorasgenpodradchikami().size();
+            int countContact = company.getContractList().size();
             int i = 1;
             // создаём лист контрактов компании
-            List<DocumentPdfContract> listContactCom = company.getDogovoraCompanyPdf().get(0).getDogovorasgenpodradchikami();
+            List<Contract> listContactCom = company.getContractList();
             // создаём пустой контракт с которым будем работать
-            DocumentPdfContract pdfContract = null;
+            Contract pdfContract = null;
 
             for (int a = 0; a< listContactCom.size(); a++){
                 // задаём формат даты
@@ -156,26 +156,27 @@ public class GeneratorDocForm3 {
 
                 // предмет договора
                 cell = new Cell()
-                        .add(pdfContract.getWork())
+                        .add(pdfContract.getName())
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER);
                 bigTable.addCell(cell);
 
                 // Наименование участника, адрес, контактный телефон Заказчика
-                cell = new Cell()
-                        .add(pdfContract.getTwoObject().getSmallNameFormCompany() + " \"" +
-                                pdfContract.getTwoObject().getSmallNameCompany() + "\"," +
-                                pdfContract.getTwoObject().getAddressCompany() + ", " +
-                                pdfContract.getTwoObject().getTelephoneCompany())
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER);
-                bigTable.addCell(cell);
+                // надо добавить реализацию получение названия компаний с инн запроса налоговой
+//                cell = new Cell()
+//                        .add(pdfContract.getTwoObject().getSmallNameFormCompany() + " \"" +
+//                                pdfContract.getTwoObject().getSmallNameCompany() + "\"," +
+//                                pdfContract.getTwoObject().getAddressCompany() + ", " +
+//                                pdfContract.getTwoObject().getTelephoneCompany())
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER);
+//                bigTable.addCell(cell);
 
                 // Полная сумма договора
                 cell = new Cell()
-                        .add(pdfContract.getMoneyContract()+" руб.")
+                        .add(pdfContract.getSumm()+" руб.")
                         .setFont(font)
                         .setFontSize(8)
                         .setTextAlignment(TextAlignment.CENTER);
@@ -183,7 +184,7 @@ public class GeneratorDocForm3 {
 
                 // Дата заключения/завершения договора
                 cell = new Cell()
-                        .add(sf.format(pdfContract.getData()) + "/" +
+                        .add(sf.format(pdfContract.getDate()) + "/" +
                                 sf.format(pdfContract.getEndDate()))
                         .setFont(font)
                         .setFontSize(8)
@@ -192,12 +193,13 @@ public class GeneratorDocForm3 {
 
                 // Роль участника
                 // объём выполнения работ стоит по умолчанию 100%
-                cell = new Cell()
-                        .add(pdfContract.getRole() + ", 100%")
-                        .setFont(font)
-                        .setFontSize(8)
-                        .setTextAlignment(TextAlignment.CENTER);
-                bigTable.addCell(cell);
+                // добавить роли... надо их откудато брать. или по умолчанию всегда субподрядчик
+//                cell = new Cell()
+//                        .add(pdfContract.getRole() + ", 100%")
+//                        .setFont(font)
+//                        .setFontSize(8)
+//                        .setTextAlignment(TextAlignment.CENTER);
+//                bigTable.addCell(cell);
 
                 // Сведения о претензиях
                 // по умолчанию нету

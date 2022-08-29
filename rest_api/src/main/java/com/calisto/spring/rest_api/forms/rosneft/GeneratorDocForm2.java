@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -24,8 +24,7 @@ public class GeneratorDocForm2 {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем полное название компании в шапку файла
             String topFullNameFileDocCompany = company.getFullNameFormCompany() + "\n" + "\"" +
@@ -55,8 +54,8 @@ public class GeneratorDocForm2 {
                             "ИНН (или иной индификационный номер) Участника закупки: " +
                             company.getInnCompany() + "\n" +
                             "Наименование закупки: №" +
-                            tender.getNumberTender() + " " +
-                            tender.getNameTender() + "\n";
+                            tender.getNumber() + " " +
+                            tender.getName() + "\n";
 
             // добавляем название документа
             String nameDocCompany = "ИНФОРМАЦИЯ О СОБСТВЕННИКАХ (АКЦИОНЕРАХ)" +
@@ -130,11 +129,10 @@ public class GeneratorDocForm2 {
                 table.addCell(cell);
 
                 cell = new Cell()
-                        .add(company.getSupervisorCompany().get(0)
-                                .giveFullName() + ", " +
-                                company.getSupervisorCompany().get(0)
+                        .add(company.getEmployeeList().get(0).giveFullName() + ", " +
+                                company.getEmployeeList().get(0)
                                         .getAddressReg() + ", " +
-                                company.getSupervisorCompany().get(0).getInn())
+                                company.getEmployeeList().get(0).getInn())
                         .setFont(font)
                         .setTextAlignment(TextAlignment.CENTER)
                         .setFontSize(8);
@@ -144,15 +142,15 @@ public class GeneratorDocForm2 {
                 SimpleDateFormat sf = new SimpleDateFormat("dd MMMM yyyy");
 
                 cell = new Cell()
-                        .add("паспорт " + company.getSupervisorCompany().get(0)
+                        .add("паспорт " + company.getEmployeeList().get(0)
                                 .getPassportSerial() + " " +
-                                company.getSupervisorCompany().get(0)
+                                company.getEmployeeList().get(0)
                                         .getPassportNumber() + ", выдан " +
-                                company.getSupervisorCompany().get(0).getPassportGovName() + ", дата выдачи " +
-                                sf.format(company.getSupervisorCompany().get(0).getPassportGovDate())
+                                company.getEmployeeList().get(0).getPassportGovName() + ", дата выдачи " +
+                                sf.format(company.getEmployeeList().get(0).getPassportGovDate())
                                 + ", дата рождения " +
-                                sf.format(company.getSupervisorCompany().get(0).getHeppyDate()) + ", гражданство " +
-                                company.getSupervisorCompany().get(0).getGovermentStatus() + ".")
+                                sf.format(company.getEmployeeList().get(0).getHeppyDate()) + ", гражданство " +
+                                company.getEmployeeList().get(0).getGovermentStatus() + ".")
                         .setFont(font)
                         .setTextAlignment(TextAlignment.CENTER)
                         .setFontSize(8);

@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -36,18 +36,18 @@ public class GeneratorDocForm6 {
             // добавляем данные на физ лицо (руководителя)
             String reqEmplCompany =
                     "Настоящим " +
-                            company.getSupervisorCompany().get(0).giveFullName() +",\n" +
+                            company.getEmployeeList().get(0).giveFullName() +",\n" +
                             "основной документ, удостоверяющий личность: паспорт " +
-                            company.getSupervisorCompany().get(0).getPassportSerial() + " " +
-                            company.getSupervisorCompany().get(0).getPassportNumber() + " выдан " +
-                            company.getSupervisorCompany().get(0).getPassportGovName() + " дата выдачи " +
-                            sf.format(company.getSupervisorCompany().get(0).getPassportGovDate()) + " года,\n" +
+                            company.getEmployeeList().get(0).getPassportSerial() + " " +
+                            company.getEmployeeList().get(0).getPassportNumber() + " выдан " +
+                            company.getEmployeeList().get(0).getPassportGovName() + " дата выдачи " +
+                            sf.format(company.getEmployeeList().get(0).getPassportGovDate()) + " года,\n" +
                             "адрес регистрации: " +
-                            company.getSupervisorCompany().get(0).getAddressReg() +",\n" +
+                            company.getEmployeeList().get(0).getAddressReg() +",\n" +
                             "дата рождения: " +
-                            sf.format(company.getSupervisorCompany().get(0).getHeppyDate()) + " года,\n" +
+                            sf.format(company.getEmployeeList().get(0).getHeppyDate()) + " года,\n" +
                             "ИНН " +
-                            company.getSupervisorCompany().get(0).getInn() + ".\n";
+                            company.getEmployeeList().get(0).getInn() + ".\n";
 
             String bodyTextDoc1 =
                     "в соответствии с Федеральным законом от 27.07.2006 г. № 152-ФЗ «О персональных данных» " +
@@ -57,16 +57,17 @@ public class GeneratorDocForm6 {
                             "в соответствии с Положением Компании «О закупке товаров, работ, услуг».\n" +
                             "Оператор, получающий настоящее согласие: " +
                             // название организатора закупки
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() + "\"" +
+                            // необходимо реализовать получение названия организации
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() + "\"" +
                             ", зарегистрирован по адресу: " +
                             // юр адрес
-                            tender.getCompany().get(0).getAddressCompany() + "\n" +
+//                            tender.getCompany().get(0).getAddressCompany() + "\n" +
                             "Настоящее согласие дано в отношении всех сведений, указанных в передаваемых " +
                             "мною в адрес " +
                             // название организатора закупки
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
                             "документах, в том числе (если применимо): фамилия, имя, отчество, дата и место " +
                             "рождения; паспортные данные; сведения об образовании (с указанием учебных заведений); " +
                             "сведения о трудовой деятельности с указанием наименования организации и занимаемой " +
@@ -82,14 +83,14 @@ public class GeneratorDocForm6 {
                             "третьим лицам, в случаях, установленных действующим законодательством, и в случаях, " +
                             "когда " +
                             // название организатора закупки
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
                             " выступает " +
                             "для третьих лиц, которым передаются персональные данные, Организатором закупки.\n" +
                             "Условием прекращения обработки персональных данных является получение " +
                             // название организатора закупки
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() + "\" " +
                             " письменного " +
                             "уведомления об отзыве согласия на обработку персональных данных.\n" +
                             "Настоящее согласие действует в течение 10 лет со дня его подписания. \n" +

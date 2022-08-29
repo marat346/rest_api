@@ -1,6 +1,6 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
+import com.calisto.spring.rest_api.entity.Company;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.DeviceGray;
@@ -69,26 +69,21 @@ public class ConvPdf {
 
         // добавляем подписанта
         String visaDocCompany =
-                company.
-                        getSupervisorCompany()
-                        .get(0).getPositionCom() +
+                company.getEmployeeList().get(0).getPositionCom() +
                         " \n" +
-                company.
-                        getSmallNameFormCompany() +" " +
-                "\""+
-                company.getSmallNameCompany() + "\"" + "         ";
+                        company.
+                                getSmallNameCompany() +" " +
+                        "\""+
+                        company.getSmallNameCompany() + "\"" + "         ";
+
         String nameVisaDocCompany =
-
                 "                                  " +
-                company.getSupervisorCompany().get(0).giveFullName()+ ".";
-
+                        company.getEmployeeList().get(0).giveFullName() + ".";
             try {
             PdfWriter pdfWriter = new PdfWriter(addressFile);
             PdfDocument pdfDocument = new PdfDocument(pdfWriter);
             Document document = new Document(pdfDocument);
             // добавление изображения
-
-            // алилуя бля
 
             // добавляем шрифт для отображения Русского языка в пдф
             // стандартный шрифт для всего документа

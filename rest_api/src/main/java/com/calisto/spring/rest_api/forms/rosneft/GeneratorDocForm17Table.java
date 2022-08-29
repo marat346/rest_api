@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.color.DeviceGray;
@@ -91,7 +91,7 @@ public class GeneratorDocForm17Table {
             createTableCell(table,"1.");
 
             // добавляем наименование позиции
-            createTableCell(table, tender.getNameTender());
+            createTableCell(table, tender.getName());
 
             // добавляем стоимость позиции с НДС
             createTableCell(table,(summ * 1.2) + "");

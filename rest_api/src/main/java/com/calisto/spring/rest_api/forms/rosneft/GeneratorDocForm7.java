@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.forms.rosneft;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.company.Tender;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.Tender;
 import com.calisto.spring.rest_api.logic.TableStampEndSignature;
 import com.calisto.spring.rest_api.style.BaseFont;
 import com.itextpdf.kernel.font.PdfFont;
@@ -25,8 +25,7 @@ public class GeneratorDocForm7 {
             BaseFont baseFont = new BaseFont();
             PdfFont font = baseFont.getFont();
 
-            String fullSizeNameCompany = company.getSmallNameFormCompany() + " " +
-                    "\"" + company.getSmallNameCompany() + "\"";
+            String fullSizeNameCompany = company.getSmallNameCompany();
 
             // добавляем полное название компании в шапку файла
             String topFullNameFileDocCompany = company.getFullNameFormCompany() + "\n" + "\"" +
@@ -78,24 +77,25 @@ public class GeneratorDocForm7 {
                             "с действующим законодательством Российской Федерации (в том числе о персональных данных) " +
                             "согласий на передачу и обработку персональных данных субъектов персональных данных, " +
                             "упомянутых в любой из частей заявки на участие в " +
-                            tender.getNameSposobZakupki() + " на " +
-                            tender.getNameTender() +
+                            tender.getNumber() + " на " +
+                            tender.getName() +
                             ", а также направление в адрес таких субъектов " +
                             "персональных данных уведомлений об осуществлении обработки их персональных " +
                             "данных в " +
+                            // необходимо реализовать получение названий компаний
                             // добавляем организатора торгов
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
                             ", зарегистрированному по адресу: " +
                             // добавляем юр адрес организатора торгов
-                            tender.getCompany().get(0).getAddressCompany() +
+//                            tender.getCompany().get(0).getAddressCompany() +
                             ", т.е. на совершение " +
                             "действий, предусмотренных п.3. ст.3 Закона 152-ФЗ.\n" +
                             "Перечень действий с персональными данными, в отношении которых получено согласие " +
                             "субъекта персональных данных и направлено уведомление об осуществлении " +
                             // добавляем организатора торгов
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() + "\"" +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() + "\"" +
                             " обработки их персональных " +
                             "данных, включает: фамилия, имя, отчество, дата и место рождения; паспортные данные; " +
                             "сведения об образовании (с указанием учебных заведений); сведения о трудовой " +
@@ -103,17 +103,17 @@ public class GeneratorDocForm7 {
                             "(в том числе по совместительству); сведения об участии (членстве) в органах " +
                             "управления иных юридических лиц; биографические данные, фотография, " +
                             "контактная информация, собственноручная подпись, иные персональные данные, " +
-                            "упомянутые в любой из частей заявки на участие в " +
+                            "упомянутые в любой из частей заявки на участие в Запросе цен на " +
                             // добавляем способ закупки и название закупки
-                            tender.getNameSposobZakupki() + " на " +
-                            tender.getNameTender() +
+//                            tender.getNameSposobZakupki() + " на " +
+                            tender.getName() +
                             ".\n" +
                             "Перечень действий с персональными данными, в отношении которых получены " +
                             "согласия субъектов персональных данных, упомянутых в любой из частей " +
-                            "заявки на участие в " +
+                            "заявки на участие в Запросе цен на " +
                             // добавляем способ закупки и название закупки
-                            tender.getNameSposobZakupki() + " на " +
-                            tender.getNameTender() +
+//                            tender.getNameSposobZakupki() + " на " +
+                            tender.getName() +
                             ", включает: обработку (включая сбор, систематизацию, накопление, хранение," +
                             " уточнение (обновление, изменение), использование, обезличивание, блокирование" +
                             ", уничтожение персональных данных), при этом общее описание вышеуказанных способов " +
@@ -121,14 +121,14 @@ public class GeneratorDocForm7 {
                             "152-ФЗ, а также на передачу такой информации третьим лицам, в случаях, установленных " +
                             "действующим законодательством, и в случаях, когда " +
                             // добавляем организатора торгов
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
                             " выступает для третьих лиц, которым " +
                             "передаются персональные данные, Организатором закупки.\n" +
                             "Условием прекращения обработки персональных данных является получение " +
                             // добавляем организатора торгов
-                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
-                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
+//                            tender.getCompany().get(0).getSmallNameFormCompany() + " \"" +
+//                            tender.getCompany().get(0).getSmallNameCompany() +"\"" +
                             " письменного уведомления " +
                             "об отзыве согласия на обработку персональных данных.\n" +
                             "Настоящее подтверждение действует со дня его подписания в течение 10 лет (либо " +

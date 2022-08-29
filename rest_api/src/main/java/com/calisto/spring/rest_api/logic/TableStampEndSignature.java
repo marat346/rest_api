@@ -1,7 +1,7 @@
 package com.calisto.spring.rest_api.logic;
 
-import com.calisto.spring.rest_api.entity.company.Company;
-import com.calisto.spring.rest_api.entity.stampendsignature.ImageDoc;
+import com.calisto.spring.rest_api.entity.Company;
+import com.calisto.spring.rest_api.entity.DocumentPdf;
 import com.itextpdf.kernel.color.DeviceGray;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.border.Border;
@@ -22,35 +22,31 @@ public class TableStampEndSignature {
         Table result = null;
 
         //достаём случайное число
-        int i = (int)(Math.random() * company.getStampsEndSignatures().get(0).getStamp().get(0).getArrayListStampDoc().size());
-        int b = (int)(Math.random() * company.getStampsEndSignatures().get(0).getSignature().get(0).getArrayListSignatureDoc().size());
+        int i = (int)(Math.random() * company.getStampList().size());
+        int b = (int)(Math.random() * company.getSignatureList().size());
 
         // печать
-        ImageDoc stamp = company.getStampsEndSignatures().get(0).getStamp().get(0).getArrayListStampDoc().get(i);
+        DocumentPdf stamp = company.getStampList().get(i);
 
         // подпись
-        ImageDoc signature = company.getStampsEndSignatures().get(0).getSignature().get(0).getArrayListSignatureDoc().get(b);
+        DocumentPdf signature = company.getSignatureList().get(b);
 
         // добавляем подписанта документа
         Border border = new GrooveBorder(new DeviceGray(10),0);
 
         // добавляем подписанта
         String visaDocCompany =
-                company.
-                        getSupervisorCompany()
-                        .get(0)
-                        .getPositionCom() +
+                company.getEmployeeList().get(0).getPositionCom() +
                         " \n" +
                         company.
-                                getSmallNameFormCompany() +" " +
+                                getSmallNameCompany() +" " +
                         "\""+
                         company.getSmallNameCompany() + "\"" + "         ";
+
         String nameVisaDocCompany =
 
                 "                                  " +
-                        company.getSupervisorCompany()
-                                .get(0)
-                                .giveFullName() + ".";
+                        company.getEmployeeList().get(0).giveFullName() + ".";
 
 
         Table table = new Table(4);
@@ -90,31 +86,27 @@ public class TableStampEndSignature {
         Table result = null;
 
         //достаём случайное число
-        int b = (int)(Math.random() * company.getStampsEndSignatures().get(0).getSignature().get(0).getArrayListSignatureDoc().size());
+        int b = (int)(Math.random() * company.getSignatureList().size());
 
         // подпись
-        ImageDoc signature = company.getStampsEndSignatures().get(0).getSignature().get(0).getArrayListSignatureDoc().get(b);
+        DocumentPdf signature = company.getSignatureList().get(b);
 
         // добавляем подписанта документа
         Border border = new GrooveBorder(new DeviceGray(10),0);
 
         // добавляем подписанта
         String visaDocCompany =
-                company.
-                        getSupervisorCompany()
-                        .get(0)
-                        .getPositionCom() +
+                company.getEmployeeList().get(0).getPositionCom() +
                         " \n" +
                         company.
-                                getSmallNameFormCompany() +" " +
+                                getSmallNameCompany() +" " +
                         "\""+
                         company.getSmallNameCompany() + "\"" + "         ";
+
         String nameVisaDocCompany =
 
                 "                                  " +
-                        company.getSupervisorCompany()
-                                .get(0)
-                                .giveFullName() + ".";
+                        company.getEmployeeList().get(0).giveFullName() + ".";
 
 
         Table table = new Table(3);
@@ -133,7 +125,7 @@ public class TableStampEndSignature {
 
         cell = new Cell()
                 .setBorder(border)
-                .add(company.getSupervisorCompany().get(0).giveFullName() + ".")
+                .add(company.getEmployeeList().get(0).giveFullName() + ".")
                 .setFont(font)
                 .setTextAlignment(TextAlignment.RIGHT)
                 .setVerticalAlignment(VerticalAlignment.BOTTOM);
