@@ -20,8 +20,7 @@ public class CompanyDaOImpl implements CompanyDaO{
         Session session = entityManager.unwrap(Session.class);
         Query<Company> companyQuery = session.createQuery("from Company",
                 Company.class);
-        List<Company> companyList = companyQuery.getResultList();
-        return companyList;
+        return companyQuery.getResultList();
     }
 
     @Override
@@ -34,8 +33,7 @@ public class CompanyDaOImpl implements CompanyDaO{
     @Override
     public Company getCompany(int id) {
         Session session = entityManager.unwrap(Session.class);
-        Company company = session.get(Company.class,id);
-        return company;
+        return session.get(Company.class,id);
     }
 
     @Override

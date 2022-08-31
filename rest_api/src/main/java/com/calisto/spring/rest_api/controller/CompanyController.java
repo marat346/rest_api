@@ -23,20 +23,17 @@ public class CompanyController {
 
     @GetMapping("/all")
     public List<Company> getAllCompany (){
-        List<Company> companyList = companyService.getAll();
-        return companyList;
+        return companyService.getAll();
     }
 
     @PostMapping("/add")
     public Company addCompany(@RequestBody Company company){
-        Company com = companyService.add(company);
-        return com;
+        return companyService.add(company);
     }
 
     @GetMapping("/get/{id}")
     public Company getCompany(@PathVariable int id){
-    Company company = companyService.getCompany(id);
-    return company;
+        return companyService.getCompany(id);
     }
 
     @GetMapping("/delete/{id}")
@@ -47,8 +44,7 @@ public class CompanyController {
 
     @PostMapping("/edit")
     public Company editCompany(@RequestBody Company company){
-        Company com = companyService.editCompany(company);
-        return com;
+        return companyService.editCompany(company);
     }
 
     @GetMapping("/add/{inn}")
