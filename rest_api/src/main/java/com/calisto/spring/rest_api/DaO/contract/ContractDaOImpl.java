@@ -1,6 +1,6 @@
-package com.calisto.spring.rest_api.DaO.akkredit;
+package com.calisto.spring.rest_api.DaO.contract;
 
-import com.calisto.spring.rest_api.entity.Akkredit;
+import com.calisto.spring.rest_api.entity.Contract;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,36 +10,35 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class AkkreditDaOImpl implements AkkreditDaO{
-
+public class ContractDaOImpl implements ContractDaO{
     @Autowired
     private EntityManager entityManager;
 
     @Override
-    public List<Akkredit> getAll() {
+    public List<Contract> getAll() {
         Session session = entityManager.unwrap(Session.class);
-        Query<Akkredit> akkreditQuery = session.createQuery("from Akkredit",
-                Akkredit.class);
-        return akkreditQuery.getResultList();
+        Query<Contract> contractQuery = session.createQuery("from Contract",
+                Contract.class) ;
+        return contractQuery.getResultList();
     }
 
     @Override
-    public Akkredit add(Akkredit akkredit) {
+    public Contract add(Contract contract) {
         Session session = entityManager.unwrap(Session.class);
-        session.saveOrUpdate(akkredit);
-        return akkredit;
+        session.saveOrUpdate(contract);
+        return contract;
     }
 
     @Override
-    public Akkredit getAkkredit(int id) {
+    public Contract getContract(int id) {
         Session session = entityManager.unwrap(Session.class);
-        return session.get(Akkredit.class,id);
+        return session.get(Contract.class,id);
     }
 
     @Override
     public void delete(int id) {
         Session session = entityManager.unwrap(Session.class);
-        Akkredit akkredit = session.get(Akkredit.class, id);
-        session.delete(akkredit);
+        Contract contract = session.get(Contract.class,id);
+        session.delete(contract);
     }
 }

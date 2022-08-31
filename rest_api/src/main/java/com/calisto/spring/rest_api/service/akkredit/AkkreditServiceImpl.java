@@ -3,10 +3,12 @@ package com.calisto.spring.rest_api.service.akkredit;
 import com.calisto.spring.rest_api.DaO.akkredit.AkkreditDaO;
 import com.calisto.spring.rest_api.entity.Akkredit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class AkkreditServiceImpl implements AkkreditService{
     @Autowired
     AkkreditDaO akkreditDaO;
