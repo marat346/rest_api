@@ -6,10 +6,10 @@ public class LoginValidate {
             throw new IllegalArgumentException("Login не должен быть пустым");
         }
 
-        boolean flag = false;
+        boolean flag = true;
         for (int i = 0; i < login.length(); i++) {
             if(Character.isDigit(login.charAt(i)) {
-                flag = true;
+                flag = false;
                 break;
             }
         }
