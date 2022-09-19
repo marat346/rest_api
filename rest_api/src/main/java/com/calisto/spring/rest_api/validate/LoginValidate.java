@@ -8,12 +8,11 @@ public class LoginValidate {
 
         boolean flag = true;
         for (int i = 0; i < login.length(); i++) {
-            if(Character.isDigit(login.charAt(i)) {
-                flag = false;
-                break;
-            }
+            if(Character.isDigit(login.charAt(i)){
+            flag = false;
+            break;
         }
-
+        }
             if (!flag) {
                 throw new IllegalArgumentException("Пароль латинецей и без цифр");
             }
